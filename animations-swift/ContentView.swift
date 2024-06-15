@@ -21,8 +21,11 @@ struct ContentView: View {
                 NavigationLink(destination: ScrollViewWithVisualEffect()) {
                     Text("Scroll View Using Visual Effect")
                 }
-                NavigationLink(destination: ContentView()) {
+                NavigationLink(destination: MeshGradient()) {
                     Text("Mesh Gradient")
+                }
+                NavigationLink(destination: CustomTransition()) {
+                    Text("Custom transition")
                 }
             }
             .navigationBarHidden(true)

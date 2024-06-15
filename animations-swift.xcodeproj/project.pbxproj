@@ -18,6 +18,7 @@
 		DC6FD7A22C1E126F008FB5FB /* words.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6FD7A12C1E126F008FB5FB /* words.swift */; };
 		DC6FD7A52C1E1800008FB5FB /* MulticolorGradient in Frameworks */ = {isa = PBXBuildFile; productRef = DC6FD7A42C1E1800008FB5FB /* MulticolorGradient */; };
 		DC6FD7A72C1E19B9008FB5FB /* MeshGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6FD7A62C1E19B9008FB5FB /* MeshGradient.swift */; };
+		DC6FD7A92C1E21EF008FB5FB /* CustomTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6FD7A82C1E21EF008FB5FB /* CustomTransition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		DC6FD79F2C1E11BF008FB5FB /* ScrollViewWithVisualEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewWithVisualEffect.swift; sourceTree = "<group>"; };
 		DC6FD7A12C1E126F008FB5FB /* words.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = words.swift; sourceTree = "<group>"; };
 		DC6FD7A62C1E19B9008FB5FB /* MeshGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeshGradient.swift; sourceTree = "<group>"; };
+		DC6FD7A82C1E21EF008FB5FB /* CustomTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTransition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 				DC6FD79D2C1E0DB3008FB5FB /* ParallaxCarousel.swift */,
 				DC6FD79F2C1E11BF008FB5FB /* ScrollViewWithVisualEffect.swift */,
 				DC6FD7A62C1E19B9008FB5FB /* MeshGradient.swift */,
+				DC6FD7A82C1E21EF008FB5FB /* CustomTransition.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 				DC6FD79C2C1DEEA4008FB5FB /* photos.swift in Sources */,
 				DC6FD79E2C1E0DB3008FB5FB /* ParallaxCarousel.swift in Sources */,
 				DC6FD7A02C1E11BF008FB5FB /* ScrollViewWithVisualEffect.swift in Sources */,
+				DC6FD7A92C1E21EF008FB5FB /* CustomTransition.swift in Sources */,
 				DC6FD78C2C1D3D68008FB5FB /* ContentView.swift in Sources */,
 				DC6FD7992C1DEE7F008FB5FB /* RotationCarousel.swift in Sources */,
 				DC6FD7A22C1E126F008FB5FB /* words.swift in Sources */,
