@@ -8,14 +8,26 @@
 import SwiftUI
 
 struct ContentView: View {
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationView {
+            List {
+                NavigationLink(destination: RotationCarousel()) {
+                    Text("Rotation Caroussel")
+                }
+                NavigationLink(destination: ContentView()) {
+                    Text("Carousel")
+                }
+                NavigationLink(destination: ContentView()) {
+                    Text("Carousel")
+                }
+                NavigationLink(destination: ContentView()) {
+                    Text("Carousel")
+                }
+            }
+            .navigationBarHidden(true)
+            
         }
-        .padding()
     }
 }
 

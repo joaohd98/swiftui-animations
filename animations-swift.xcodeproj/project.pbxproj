@@ -7,18 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DC6FD78A2C1D3D68008FB5FB /* animations_swiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6FD7892C1D3D68008FB5FB /* animations_swiftApp.swift */; };
+		DC6FD78A2C1D3D68008FB5FB /* SwiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6FD7892C1D3D68008FB5FB /* SwiftApp.swift */; };
 		DC6FD78C2C1D3D68008FB5FB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6FD78B2C1D3D68008FB5FB /* ContentView.swift */; };
 		DC6FD78E2C1D3D69008FB5FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC6FD78D2C1D3D69008FB5FB /* Assets.xcassets */; };
 		DC6FD7912C1D3D69008FB5FB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC6FD7902C1D3D69008FB5FB /* Preview Assets.xcassets */; };
+		DC6FD7992C1DEE7F008FB5FB /* RotationCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6FD7982C1DEE7F008FB5FB /* RotationCarousel.swift */; };
+		DC6FD79C2C1DEEA4008FB5FB /* photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6FD79B2C1DEEA4008FB5FB /* photos.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		DC6FD7862C1D3D68008FB5FB /* animations-swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "animations-swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DC6FD7892C1D3D68008FB5FB /* animations_swiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = animations_swiftApp.swift; sourceTree = "<group>"; };
+		DC6FD7892C1D3D68008FB5FB /* SwiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftApp.swift; sourceTree = "<group>"; };
 		DC6FD78B2C1D3D68008FB5FB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DC6FD78D2C1D3D69008FB5FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DC6FD7902C1D3D69008FB5FB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		DC6FD7982C1DEE7F008FB5FB /* RotationCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationCarousel.swift; sourceTree = "<group>"; };
+		DC6FD79B2C1DEEA4008FB5FB /* photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = photos.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +55,9 @@
 		DC6FD7882C1D3D68008FB5FB /* animations-swift */ = {
 			isa = PBXGroup;
 			children = (
-				DC6FD7892C1D3D68008FB5FB /* animations_swiftApp.swift */,
+				DC6FD79A2C1DEE8C008FB5FB /* Mock */,
+				DC6FD7972C1DEB56008FB5FB /* Screens */,
+				DC6FD7892C1D3D68008FB5FB /* SwiftApp.swift */,
 				DC6FD78B2C1D3D68008FB5FB /* ContentView.swift */,
 				DC6FD78D2C1D3D69008FB5FB /* Assets.xcassets */,
 				DC6FD78F2C1D3D69008FB5FB /* Preview Content */,
@@ -65,6 +71,22 @@
 				DC6FD7902C1D3D69008FB5FB /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		DC6FD7972C1DEB56008FB5FB /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				DC6FD7982C1DEE7F008FB5FB /* RotationCarousel.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		DC6FD79A2C1DEE8C008FB5FB /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				DC6FD79B2C1DEEA4008FB5FB /* photos.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +159,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC6FD79C2C1DEEA4008FB5FB /* photos.swift in Sources */,
 				DC6FD78C2C1D3D68008FB5FB /* ContentView.swift in Sources */,
-				DC6FD78A2C1D3D68008FB5FB /* animations_swiftApp.swift in Sources */,
+				DC6FD7992C1DEE7F008FB5FB /* RotationCarousel.swift in Sources */,
+				DC6FD78A2C1D3D68008FB5FB /* SwiftApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
