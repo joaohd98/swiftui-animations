@@ -18,15 +18,15 @@ struct ContentView: View {
                 NavigationLink(destination: ParallaxCarousel()) {
                     Text("Parallax Carousel")
                 }
-                NavigationLink(destination: ContentView()) {
-                    Text("Carousel")
+                NavigationLink(destination: ScrollViewWithVisualEffect()) {
+                    Text("Scroll View Using Visual Effect")
                 }
                 NavigationLink(destination: ContentView()) {
                     Text("Carousel")
                 }
             }
             .navigationBarHidden(true)
-            
+                        
         }
     }
 }

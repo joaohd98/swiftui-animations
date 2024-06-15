@@ -14,6 +14,8 @@
 		DC6FD7992C1DEE7F008FB5FB /* RotationCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6FD7982C1DEE7F008FB5FB /* RotationCarousel.swift */; };
 		DC6FD79C2C1DEEA4008FB5FB /* photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6FD79B2C1DEEA4008FB5FB /* photos.swift */; };
 		DC6FD79E2C1E0DB3008FB5FB /* ParallaxCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6FD79D2C1E0DB3008FB5FB /* ParallaxCarousel.swift */; };
+		DC6FD7A02C1E11BF008FB5FB /* ScrollViewWithVisualEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6FD79F2C1E11BF008FB5FB /* ScrollViewWithVisualEffect.swift */; };
+		DC6FD7A22C1E126F008FB5FB /* words.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6FD7A12C1E126F008FB5FB /* words.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		DC6FD7982C1DEE7F008FB5FB /* RotationCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationCarousel.swift; sourceTree = "<group>"; };
 		DC6FD79B2C1DEEA4008FB5FB /* photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = photos.swift; sourceTree = "<group>"; };
 		DC6FD79D2C1E0DB3008FB5FB /* ParallaxCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParallaxCarousel.swift; sourceTree = "<group>"; };
+		DC6FD79F2C1E11BF008FB5FB /* ScrollViewWithVisualEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewWithVisualEffect.swift; sourceTree = "<group>"; };
+		DC6FD7A12C1E126F008FB5FB /* words.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = words.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +84,7 @@
 			children = (
 				DC6FD7982C1DEE7F008FB5FB /* RotationCarousel.swift */,
 				DC6FD79D2C1E0DB3008FB5FB /* ParallaxCarousel.swift */,
+				DC6FD79F2C1E11BF008FB5FB /* ScrollViewWithVisualEffect.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -88,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				DC6FD79B2C1DEEA4008FB5FB /* photos.swift */,
+				DC6FD7A12C1E126F008FB5FB /* words.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -164,8 +170,10 @@
 			files = (
 				DC6FD79C2C1DEEA4008FB5FB /* photos.swift in Sources */,
 				DC6FD79E2C1E0DB3008FB5FB /* ParallaxCarousel.swift in Sources */,
+				DC6FD7A02C1E11BF008FB5FB /* ScrollViewWithVisualEffect.swift in Sources */,
 				DC6FD78C2C1D3D68008FB5FB /* ContentView.swift in Sources */,
 				DC6FD7992C1DEE7F008FB5FB /* RotationCarousel.swift in Sources */,
+				DC6FD7A22C1E126F008FB5FB /* words.swift in Sources */,
 				DC6FD78A2C1D3D68008FB5FB /* SwiftApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
