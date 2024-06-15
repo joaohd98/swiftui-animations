@@ -13,6 +13,7 @@
 		DC6FD7912C1D3D69008FB5FB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC6FD7902C1D3D69008FB5FB /* Preview Assets.xcassets */; };
 		DC6FD7992C1DEE7F008FB5FB /* RotationCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6FD7982C1DEE7F008FB5FB /* RotationCarousel.swift */; };
 		DC6FD79C2C1DEEA4008FB5FB /* photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6FD79B2C1DEEA4008FB5FB /* photos.swift */; };
+		DC6FD79E2C1E0DB3008FB5FB /* ParallaxCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6FD79D2C1E0DB3008FB5FB /* ParallaxCarousel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		DC6FD7902C1D3D69008FB5FB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DC6FD7982C1DEE7F008FB5FB /* RotationCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationCarousel.swift; sourceTree = "<group>"; };
 		DC6FD79B2C1DEEA4008FB5FB /* photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = photos.swift; sourceTree = "<group>"; };
+		DC6FD79D2C1E0DB3008FB5FB /* ParallaxCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParallaxCarousel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				DC6FD7982C1DEE7F008FB5FB /* RotationCarousel.swift */,
+				DC6FD79D2C1E0DB3008FB5FB /* ParallaxCarousel.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -160,6 +163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC6FD79C2C1DEEA4008FB5FB /* photos.swift in Sources */,
+				DC6FD79E2C1E0DB3008FB5FB /* ParallaxCarousel.swift in Sources */,
 				DC6FD78C2C1D3D68008FB5FB /* ContentView.swift in Sources */,
 				DC6FD7992C1DEE7F008FB5FB /* RotationCarousel.swift in Sources */,
 				DC6FD78A2C1D3D68008FB5FB /* SwiftApp.swift in Sources */,

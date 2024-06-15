@@ -13,10 +13,10 @@ struct ContentView: View {
         NavigationView {
             List {
                 NavigationLink(destination: RotationCarousel()) {
-                    Text("Rotation Caroussel")
+                    Text("Rotation Carousel")
                 }
-                NavigationLink(destination: ContentView()) {
-                    Text("Carousel")
+                NavigationLink(destination: ParallaxCarousel()) {
+                    Text("Parallax Carousel")
                 }
                 NavigationLink(destination: ContentView()) {
                     Text("Carousel")
