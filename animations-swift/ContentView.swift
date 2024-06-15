@@ -27,6 +27,9 @@ struct ContentView: View {
                 NavigationLink(destination: CustomTransition()) {
                     Text("Custom transition")
                 }
+                NavigationLink(destination: RippleEffect()) {
+                    Text("Ripple Effect")
+                }
             }
             .navigationBarHidden(true)
                         
