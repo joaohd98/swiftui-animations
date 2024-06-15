@@ -22,7 +22,7 @@ struct ContentView: View {
                     Text("Scroll View Using Visual Effect")
                 }
                 NavigationLink(destination: ContentView()) {
-                    Text("Carousel")
+                    Text("Mesh Gradient")
                 }
             }
             .navigationBarHidden(true)
