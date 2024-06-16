@@ -23,7 +23,10 @@ extension Color {
     )
 }
 
-struct DotAnimations: View {
+struct GoodMorning: View {
+    @State var isFullScreen: Bool
+    var proxy: GeometryProxy
+    
     var body: some View {
         ZStack {
             MulticolorGradient {
@@ -32,11 +35,11 @@ struct DotAnimations: View {
                 ColorStop(position: .init(x: 1, y: 0.5), color: .pastelPink)
                 ColorStop(position: .bottom, color: .dustStorm)
             }
-            .edgesIgnoringSafeArea(.all)
-            
+            .padding(.top, -proxy.safeAreaInsets.top)
+            .frame(height: proxy.size.height + proxy.safeAreaInsets.bottom)
+
             VStack {
                 HourText()
-                    .padding(.top, 20)
                 
                 HStack {
                     VStack(alignment: .leading, spacing: 24) {
@@ -56,7 +59,6 @@ struct DotAnimations: View {
 
                     Spacer()
                 }
-                .padding(.top, -20)
                 .padding(.leading, 40)
                 
                 HStack {
@@ -109,11 +111,29 @@ struct DotAnimations: View {
                 .padding(.leading, 40)
                 
                 Spacer()
-                
-                BottomInput()
+            }
+        }
+       
+    }
+}
+
+struct DotAnimations: View {
+    var body: some View {
+        GeometryReader { proxy in
+            ZStack {
+                ScrollView {
+                    GoodMorning(isFullScreen: true, proxy: proxy)
+                }
+                .disabled(true)
+
+                VStack {
+                    Spacer()
+                    BottomInput()
+                }
             }
         }
         .navigationBarHidden(true)
+
     }
 }
 
