@@ -56,11 +56,15 @@ class TimeViewModel: ObservableObject {
 
 struct HourText: View {
     @ObservedObject var viewModel = TimeViewModel()
+    var isFullScreen: Bool
 
    var body: some View {
        VStack(spacing: 2) {
-           Text(viewModel.currentTime)
-               .font(.system(size: 18, weight: .medium, design: .monospaced))
+           if isFullScreen {
+               Text(viewModel.currentTime)
+                   .font(.system(size: 18, weight: .medium, design: .monospaced))
+           }
+        
            
            Text(viewModel.greeting.uppercased())
                .font(.system(size: 42, weight: .bold, design: .serif))
@@ -68,13 +72,16 @@ struct HourText: View {
                .foregroundColor(.white)
                .multilineTextAlignment(.center)
                .opacity(0.7)
+               .scaleEffect(isFullScreen ? 1 : 0.7)
 
        }
    }
 }
 
 #Preview {
-    ZStack {
+    @State var isFullScreen = true
+
+    return ZStack {
         MulticolorGradient {
             ColorStop(position: .top, color: .dustStorm)
             ColorStop(position: .init(x: 0, y: 0.5), color: .middlePurple)
@@ -82,6 +89,6 @@ struct HourText: View {
             ColorStop(position: .bottom, color: .dustStorm)
         }
         .edgesIgnoringSafeArea(.all)
-        HourText()
+        HourText(isFullScreen: isFullScreen)
     }
 }

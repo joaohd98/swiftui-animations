@@ -24,116 +24,142 @@ extension Color {
 }
 
 struct GoodMorning: View {
-    @State var isFullScreen: Bool
+    var isFullScreen: Bool
     var proxy: GeometryProxy
     
     var body: some View {
-        ZStack {
-            MulticolorGradient {
-                ColorStop(position: .top, color: .dustStorm)
-                ColorStop(position: .init(x: 0, y: 0.5), color: .middlePurple)
-                ColorStop(position: .init(x: 1, y: 0.5), color: .pastelPink)
-                ColorStop(position: .bottom, color: .dustStorm)
-            }
-            .padding(.top, -proxy.safeAreaInsets.top)
-            .frame(height: proxy.size.height + proxy.safeAreaInsets.bottom)
-
+        MulticolorGradient {
+            ColorStop(position: .top, color: .dustStorm)
+            ColorStop(position: .init(x: 0, y: 0.5), color: .middlePurple)
+            ColorStop(position: .init(x: 1, y: 0.5), color: .pastelPink)
+            ColorStop(position: .bottom, color: .dustStorm)
+        }
+        .clipShape(.rect(cornerRadius: isFullScreen ? 0 : 32))
+        .padding(.top, isFullScreen ? -proxy.safeAreaInsets.top : 0)
+        .frame(height: isFullScreen ? proxy.size.height + proxy.safeAreaInsets.bottom : 280)
+        .overlay {
             VStack {
-                HourText()
+                HourText(isFullScreen: isFullScreen)
+                    .padding(.top, isFullScreen ? 0 : 16)
+
                 
-                HStack {
-                    VStack(alignment: .leading, spacing: 24) {
-                        Text("I thrive in news enviromnets and welcome the adventures of learning.")
-                            .font(.system(size: 18, weight: .medium))
-                        Text("Daily Afternoon")
-                            .font(.system(size: 16, weight: .light))
-                            .opacity(0.8)
-                    }
-                    .frame(width: 130, alignment: .leading)
-                    .padding(.vertical, 20)
-                    .padding(.horizontal, 24)
-                    .background(.white)
-                    .clipShape(.rect(cornerRadius: 20))
-                    .rotationEffect(.degrees(-2))
-                    .shadow(radius: 24)
-
-                    Spacer()
-                }
-                .padding(.leading, 40)
-                
-                HStack {
-                    Spacer()
-
-                    ZStack {
-                        Image(uiImage: .building)
-                            .resizable()
-                            .clipped()
-                            .overlay(Color.black.opacity(0.3))
-                        
-                        VStack {
-                            Spacer()
-                            Text("Vivian's birthday is coming up! Have you thought of a present?")
-                                .font(.system(size: 14, weight: .semibold))
-                                .foregroundColor(.white)
-                                .padding(.bottom, 12)
-                                .padding(.horizontal, 12)
-
+                VStack(spacing: 0) {
+                    HStack {
+                        VStack(alignment: .leading, spacing: 24) {
+                            Text("I thrive in news enviromnets and welcome the adventures of learning.")
+                                .font(.system(size: 18, weight: .medium))
+                            Text("Daily Afternoon")
+                                .font(.system(size: 16, weight: .light))
+                                .opacity(0.8)
                         }
-                    }
-                    .frame(width: 170, height: 250)
-                    .clipShape(.rect(cornerRadius: 12))
-                    .rotationEffect(.degrees(2))
-                    .shadow(radius: 24)
-                }
-                .padding(.trailing, 26)
-                .padding(.top, -120)
-                .zIndex(1)
-                
-                HStack {
-                    VStack(alignment: .leading, spacing: 0) {
-                        MonthDayText()
+                        .frame(width: 130, alignment: .leading)
+                        .padding(.vertical, 20)
+                        .padding(.horizontal, 24)
+                        .background(.white)
+                        .clipShape(.rect(cornerRadius: 20))
+                        .rotationEffect(.degrees(isFullScreen ? -1 : -2))
+                        .shadow(radius: 24)
                         
-                        Text("Daily Overview")
-                            .font(.system(size: 16, weight: .light))
-                            .opacity(0.8)
+                        Spacer()
                     }
-                    .frame(width: 130, alignment: .leading)
-                    .padding(.vertical, 20)
-                    .padding(.horizontal, 24)
-                    .background(.white)
-                    .clipShape(.rect(cornerRadius: 20))
-                    .rotationEffect(.degrees(-0.5))
-                    .shadow(radius: 24)
-
-                    Spacer()
+                    .padding(.top, isFullScreen ? 0 : 60)
+                    .padding(.leading, 40)
+                    
+                    HStack {
+                        Spacer()
+                        
+                        ZStack {
+                            Image(uiImage: .building)
+                                .resizable()
+                                .clipped()
+                                .overlay(Color.black.opacity(0.3))
+                            
+                            VStack {
+                                Spacer()
+                                Text("Vivian's birthday is coming up! Have you thought of a present?")
+                                    .font(.system(size: 14, weight: .semibold))
+                                    .foregroundColor(.white)
+                                    .padding(.bottom, 12)
+                                    .padding(.horizontal, 12)
+                                
+                            }
+                        }
+                        .frame(width: 170, height: 250)
+                        .clipShape(.rect(cornerRadius: 12))
+                        .rotationEffect(.degrees(isFullScreen ? 2 : 2))
+                        .shadow(radius: 24)
+                    }
+                    .padding(.trailing, 26)
+                    .padding(.top, isFullScreen ? -125 : -240)
+                    .zIndex(1)
+                    
+                    
+                     HStack {
+                        VStack(alignment: .leading, spacing: 0) {
+                            MonthDayText()
+                            
+                            Text("Daily Overview")
+                                .font(.system(size: 16, weight: .light))
+                                .opacity(0.8)
+                        }
+                        .frame(width: 130, alignment: .leading)
+                        .padding(.vertical, 20)
+                        .padding(.horizontal, 24)
+                        .background(.white)
+                        .clipShape(.rect(cornerRadius: 20))
+                        .rotationEffect(.degrees(-0.5))
+                        .shadow(radius: 24)
+                        
+                        Spacer()
+                    }
+                    .padding(.top, isFullScreen ? -40 : -225)
+                    .padding(.leading, isFullScreen ? 40 : 120)
                 }
-                .padding(.top, -60)
-                .padding(.leading, 40)
+                .padding(.bottom, isFullScreen ? 0 : -400)
                 
                 Spacer()
             }
+            .clipped()
         }
-       
     }
 }
 
 struct DotAnimations: View {
+    @State var currrent: Int? = 0
+    
     var body: some View {
         GeometryReader { proxy in
             ZStack {
                 ScrollView {
-                    GoodMorning(isFullScreen: true, proxy: proxy)
+                    VStack(spacing: 10) {
+                        GoodMorning(isFullScreen: currrent == 0, proxy: proxy)
+                            .onTapGesture {
+                                withAnimation(.spring) {
+                                    currrent = 0
+                                }
+                            }
+                    }
                 }
-                .disabled(true)
+                .disabled(currrent != nil)
 
                 VStack {
                     Spacer()
-                    BottomInput()
+                    
+                    if currrent != nil {
+                        BottomInput()
+                    }
                 }
             }
+            .gesture(
+                MagnifyGesture()
+                    .onEnded { _ in
+                        withAnimation(.spring) {
+                            currrent = nil
+                        }
+                    }
+            )
         }
         .navigationBarHidden(true)
-
     }
 }
 
