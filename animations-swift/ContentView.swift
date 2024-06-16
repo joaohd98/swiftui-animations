@@ -30,6 +30,9 @@ struct ContentView: View {
                 NavigationLink(destination: RippleEffect()) {
                     Text("Ripple Effect")
                 }
+                NavigationLink(destination: DotAnimations()) {
+                    Text("Dot animation")
+                }
             }
             .navigationBarHidden(true)
                         
