@@ -25,6 +25,9 @@
 		DC883C5A2C1EA39700BA0CFF /* HourText.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC883C592C1EA39700BA0CFF /* HourText.swift */; };
 		DC883C5C2C1EAF8700BA0CFF /* MonthDayText.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC883C5B2C1EAF8700BA0CFF /* MonthDayText.swift */; };
 		DC883C5E2C1EB16B00BA0CFF /* BottomInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC883C5D2C1EB16B00BA0CFF /* BottomInput.swift */; };
+		DC883C612C1FC36400BA0CFF /* InterpolateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC883C602C1FC36400BA0CFF /* InterpolateValue.swift */; };
+		DCE084EF2C211D9800B43C18 /* GoodMorningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE084EE2C211D9800B43C18 /* GoodMorningView.swift */; };
+		DCE084F22C211DBE00B43C18 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE084F12C211DBE00B43C18 /* Color.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +49,9 @@
 		DC883C592C1EA39700BA0CFF /* HourText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourText.swift; sourceTree = "<group>"; };
 		DC883C5B2C1EAF8700BA0CFF /* MonthDayText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthDayText.swift; sourceTree = "<group>"; };
 		DC883C5D2C1EB16B00BA0CFF /* BottomInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomInput.swift; sourceTree = "<group>"; };
+		DC883C602C1FC36400BA0CFF /* InterpolateValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterpolateValue.swift; sourceTree = "<group>"; };
+		DCE084EE2C211D9800B43C18 /* GoodMorningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodMorningView.swift; sourceTree = "<group>"; };
+		DCE084F12C211DBE00B43C18 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +85,8 @@
 		DC6FD7882C1D3D68008FB5FB /* animations-swift */ = {
 			isa = PBXGroup;
 			children = (
+				DCE084F02C211DB200B43C18 /* Colors */,
+				DC883C5F2C1FC35300BA0CFF /* Animation */,
 				DC883C582C1EA37900BA0CFF /* Components */,
 				DC6FD79A2C1DEE8C008FB5FB /* Mock */,
 				DC6FD7972C1DEB56008FB5FB /* Screens */,
@@ -101,6 +109,7 @@
 		DC6FD7972C1DEB56008FB5FB /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				DCE084ED2C211D7E00B43C18 /* Dot */,
 				DC6FD7982C1DEE7F008FB5FB /* RotationCarousel.swift */,
 				DC6FD79D2C1E0DB3008FB5FB /* ParallaxCarousel.swift */,
 				DC6FD79F2C1E11BF008FB5FB /* ScrollViewWithVisualEffect.swift */,
@@ -108,7 +117,6 @@
 				DC6FD7A82C1E21EF008FB5FB /* CustomTransition.swift */,
 				DC6FD7AA2C1E2A7B008FB5FB /* RippleEffect.swift */,
 				DC6FD7AC2C1E2FD8008FB5FB /* Ripple.metal */,
-				DC6FD7AE2C1E9F25008FB5FB /* DotAnimations.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -130,6 +138,31 @@
 				DC883C5D2C1EB16B00BA0CFF /* BottomInput.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		DC883C5F2C1FC35300BA0CFF /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				DC883C602C1FC36400BA0CFF /* InterpolateValue.swift */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
+		DCE084ED2C211D7E00B43C18 /* Dot */ = {
+			isa = PBXGroup;
+			children = (
+				DC6FD7AE2C1E9F25008FB5FB /* DotAnimations.swift */,
+				DCE084EE2C211D9800B43C18 /* GoodMorningView.swift */,
+			);
+			path = Dot;
+			sourceTree = "<group>";
+		};
+		DCE084F02C211DB200B43C18 /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				DCE084F12C211DBE00B43C18 /* Color.swift */,
+			);
+			path = Colors;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,8 +246,10 @@
 				DC6FD79E2C1E0DB3008FB5FB /* ParallaxCarousel.swift in Sources */,
 				DC6FD7A02C1E11BF008FB5FB /* ScrollViewWithVisualEffect.swift in Sources */,
 				DC883C5C2C1EAF8700BA0CFF /* MonthDayText.swift in Sources */,
+				DC883C612C1FC36400BA0CFF /* InterpolateValue.swift in Sources */,
 				DC6FD7AB2C1E2A7B008FB5FB /* RippleEffect.swift in Sources */,
 				DC6FD7A92C1E21EF008FB5FB /* CustomTransition.swift in Sources */,
+				DCE084EF2C211D9800B43C18 /* GoodMorningView.swift in Sources */,
 				DC6FD78C2C1D3D68008FB5FB /* ContentView.swift in Sources */,
 				DC6FD7992C1DEE7F008FB5FB /* RotationCarousel.swift in Sources */,
 				DC6FD7A22C1E126F008FB5FB /* words.swift in Sources */,
@@ -223,6 +258,7 @@
 				DC6FD7AD2C1E2FD8008FB5FB /* Ripple.metal in Sources */,
 				DC883C5A2C1EA39700BA0CFF /* HourText.swift in Sources */,
 				DC6FD7AF2C1E9F25008FB5FB /* DotAnimations.swift in Sources */,
+				DCE084F22C211DBE00B43C18 /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
