@@ -37,19 +37,21 @@ struct ViewOffsetKey: PreferenceKey {
     }
 }
 
+
 struct DotAnimations: View {
     @State var current = -1
     @State var isFullScreenFloat = 0.0
     @State var isFullScreen = false
     @State var offsetY: [Int: CGFloat] = [:]
     
-    func calculateYOffset(index: Int) -> CGFloat {
+    func calculateYOffset(index: Int, height: CGFloat) -> CGFloat {
         guard let currentOffsetY = offsetY[current] else { return 0 }
         var yValue = interpolateValue(isFullScreenFloat, minValue: 0, maxValue: abs(currentOffsetY))
         yValue = currentOffsetY > 0 ? -yValue : yValue
-        
+                
         if current > index {
-            return yValue * 1.3
+            let percentage = offsetY[index].map { ($0 / height) * 0.3} ?? 0
+            return yValue * (1.3 - percentage)
         }
         
         if current < index {
@@ -112,7 +114,7 @@ struct DotAnimations: View {
                                                })
                                        }
                                    }
-                                   .offset(y: calculateYOffset(index: index))
+                                   .offset(y: calculateYOffset(index: index, height: proxy.size.height))
                                    .blur(radius: calculateBlur(index: index))
                                    .opacity(calculateOpacity(index: index))
                                }
