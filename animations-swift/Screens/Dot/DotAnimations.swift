@@ -58,6 +58,26 @@ struct DotAnimations: View {
         
         return yValue
     }
+    
+    func calculateBlur(index: Int) -> CGFloat {
+        if index != current {
+            return interpolateValue(isFullScreenFloat, minValue: 0, maxValue: 30)
+        }
+        
+        return 0
+    }
+    
+    func calculateOpacity(index: Int) -> CGFloat {
+        if !isFullScreen {
+            return 1
+        }
+        
+        if index != current {
+            return 1 - interpolateValue(isFullScreenFloat, minValue: 0, maxValue: 1)
+        }
+        
+        return 1
+    }
  
     var body: some View {
         GeometryReader { proxy in
@@ -93,6 +113,8 @@ struct DotAnimations: View {
                                        }
                                    }
                                    .offset(y: calculateYOffset(index: index))
+                                   .blur(radius: calculateBlur(index: index))
+                                   .opacity(calculateOpacity(index: index))
                                }
                             }
                         }
