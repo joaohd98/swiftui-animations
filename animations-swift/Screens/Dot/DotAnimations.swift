@@ -93,7 +93,7 @@ struct DotAnimations: View {
                                    .onTapGesture {
                                        current = index
                                        
-                                       withAnimation(.spring) {
+                                       withAnimation(.spring(duration: 0.7, bounce: 0.4)) {
                                            isFullScreenFloat = 1
                                            isFullScreen = true
                                        }
@@ -140,7 +140,7 @@ struct DotAnimations: View {
                         isFullScreenFloat = action.magnification + 0.05
                     }
                     .onEnded { _ in
-                        withAnimation(.spring) {
+                        withAnimation(.spring(duration: 0.7, bounce: 0.4)) {
                             if !isFullScreen {
                                 return
                             }

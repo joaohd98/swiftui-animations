@@ -22,7 +22,7 @@ struct GoodMorning: View {
         }
         .clipShape(.rect(cornerRadius: interpolateValue(isFullScreen, minValue: 32, maxValue: 0)))
         .padding(.top, -interpolateValue(isFullScreen, minValue: 0, maxValue: proxy.safeAreaInsets.top))
-        .frame(height: interpolateValue(isFullScreen, minValue: 280, maxValue: proxy.size.height + proxy.safeAreaInsets.bottom))
+        .frame(height: interpolateValue(isFullScreen, minValue: 320, maxValue: proxy.size.height + proxy.safeAreaInsets.bottom))
         .overlay {
             VStack {
                 HourText(isFullScreen: isFullScreen)
@@ -98,17 +98,19 @@ struct GoodMorning: View {
                     .padding(.top, interpolateValue(isFullScreen, minValue: -225, maxValue: -40))
                     .padding(.leading, interpolateValue(isFullScreen, minValue: 120, maxValue: 40))
                 }
+                .padding(.top, interpolateValue(isFullScreen, minValue: 30, maxValue: 0))
                 .padding(.bottom, interpolateValue(isFullScreen, minValue: -400, maxValue: 0))
                 
                 Spacer()
             }
             .clipped()
         }
+        .padding(.horizontal, 12 - interpolateValue(isFullScreen, minValue: 0, maxValue: 12))
     }
 }
 
 #Preview {
     GeometryReader { proxy in
-        GoodMorning(isFullScreen: 1, proxy: proxy)
+        GoodMorning(isFullScreen: 0, proxy: proxy)
     }
 }
