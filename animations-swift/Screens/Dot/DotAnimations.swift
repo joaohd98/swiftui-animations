@@ -139,8 +139,16 @@ struct DotAnimations: View {
                         
                         isFullScreenFloat = action.magnification + 0.05
                     }
-                    .onEnded { _ in
-                        withAnimation(.spring(duration: 0.7, bounce: 0.4)) {
+                    .onEnded { action in
+                        let bounce = mapRange(
+                            inMin: 0,
+                            inMax: 15,
+                            outMin: 0.1,
+                            outMax: 0.4,
+                            valueToMap: -action.velocity
+                        )
+                        
+                        withAnimation(.spring(duration: 0.7, bounce: bounce)) {
                             if !isFullScreen {
                                 return
                             }
