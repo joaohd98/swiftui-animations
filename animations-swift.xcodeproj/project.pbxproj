@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC6E43F92C24F93E00C1F5CE /* BrushAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6E43F82C24F93E00C1F5CE /* BrushAnimation.swift */; };
+		DC6E43FB2C24FC4C00C1F5CE /* new-york.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DC6E43FA2C24FC4C00C1F5CE /* new-york.mp4 */; };
 		DC6FD78A2C1D3D68008FB5FB /* SwiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6FD7892C1D3D68008FB5FB /* SwiftApp.swift */; };
 		DC6FD78C2C1D3D68008FB5FB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6FD78B2C1D3D68008FB5FB /* ContentView.swift */; };
 		DC6FD78E2C1D3D69008FB5FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC6FD78D2C1D3D69008FB5FB /* Assets.xcassets */; };
@@ -31,6 +33,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DC6E43F82C24F93E00C1F5CE /* BrushAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrushAnimation.swift; sourceTree = "<group>"; };
+		DC6E43FA2C24FC4C00C1F5CE /* new-york.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = "new-york.mp4"; path = "Assets.xcassets/new-york.dataset/new-york.mp4"; sourceTree = "<group>"; };
 		DC6FD7862C1D3D68008FB5FB /* animations-swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "animations-swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC6FD7892C1D3D68008FB5FB /* SwiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftApp.swift; sourceTree = "<group>"; };
 		DC6FD78B2C1D3D68008FB5FB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -66,6 +70,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DC6E43F72C24F91C00C1F5CE /* Brush */ = {
+			isa = PBXGroup;
+			children = (
+				DC6E43F82C24F93E00C1F5CE /* BrushAnimation.swift */,
+			);
+			path = Brush;
+			sourceTree = "<group>";
+		};
 		DC6FD77D2C1D3D68008FB5FB = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +97,7 @@
 		DC6FD7882C1D3D68008FB5FB /* animations-swift */ = {
 			isa = PBXGroup;
 			children = (
+				DC6E43FA2C24FC4C00C1F5CE /* new-york.mp4 */,
 				DCE084F02C211DB200B43C18 /* Colors */,
 				DC883C5F2C1FC35300BA0CFF /* Animation */,
 				DC883C582C1EA37900BA0CFF /* Components */,
@@ -109,6 +122,7 @@
 		DC6FD7972C1DEB56008FB5FB /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				DC6E43F72C24F91C00C1F5CE /* Brush */,
 				DCE084ED2C211D7E00B43C18 /* Dot */,
 				DC6FD7982C1DEE7F008FB5FB /* RotationCarousel.swift */,
 				DC6FD79D2C1E0DB3008FB5FB /* ParallaxCarousel.swift */,
@@ -230,6 +244,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC6FD7912C1D3D69008FB5FB /* Preview Assets.xcassets in Resources */,
+				DC6E43FB2C24FC4C00C1F5CE /* new-york.mp4 in Resources */,
 				DC6FD78E2C1D3D69008FB5FB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -257,6 +272,7 @@
 				DC6FD78A2C1D3D68008FB5FB /* SwiftApp.swift in Sources */,
 				DC6FD7AD2C1E2FD8008FB5FB /* Ripple.metal in Sources */,
 				DC883C5A2C1EA39700BA0CFF /* HourText.swift in Sources */,
+				DC6E43F92C24F93E00C1F5CE /* BrushAnimation.swift in Sources */,
 				DC6FD7AF2C1E9F25008FB5FB /* DotAnimations.swift in Sources */,
 				DCE084F22C211DBE00B43C18 /* Color.swift in Sources */,
 			);

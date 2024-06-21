@@ -33,9 +33,9 @@ struct ContentView: View {
                 NavigationLink(destination: DotAnimations()) {
                     Text("Dot animation")
                 }
-//                NavigationLink(destination: RotationCard()) {
-//                    Text("Rotation card")
-//                }
+                NavigationLink(destination: BrushAnimation()) {
+                    Text("Brush animation")
+                }
             }
             .navigationBarHidden(true)
                         
