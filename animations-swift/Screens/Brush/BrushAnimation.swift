@@ -8,37 +8,46 @@
 import SwiftUI
 import AVKit
 
+
 struct BrushAnimation: View {
-    let video: URL
-    let avPlayer: AVPlayer
+    @State var origin: CGPoint = .zero
+    @State var counter: Int = 0
     
-    init() {
-        self.video = Bundle.main.url(forResource: "new-york", withExtension: "mp4")!
-        self.avPlayer = AVPlayer(url: video)
-        self.avPlayer.isMuted = true
-    }
+    let blurRadius = 10.0
+    let alphaThreshold = 0.2
     
     var body: some View {
-        VStack {
+        ZStack {
             GeometryReader { proxy in
-                VideoPlayer(player: avPlayer)
-                    .aspectRatio(contentMode: .fill)
-                    .disabled(true)
-                    .frame(width: proxy.size.width, height: proxy.size.height)
-                    .onAppear {
-                        avPlayer.play()
+                VideoLoop(
+                    name: "new-york",
+                    height: proxy.size.height,
+                    width: proxy.size.width
+                )
+                
+                VideoLoop(
+                    name: "grand-canal",
+                    height: proxy.size.height,
+                    width: proxy.size.width
+                )
+                .mask {
+                    Canvas { context, size in
+                        let simbol = context.resolveSymbol(id: "square")!
+                        
+                        context.drawLayer { context2 in
+                            context2
+                                .draw(simbol, at: .init(
+                                    x: size.width / 2,
+                                    y: size.height / 2
+                                )
+                            )
+                        }
+                    } symbols: {
+                        RoundedRectangle(cornerRadius: 25)
+                            .frame(width: 200, height: 200)
+                            .tag("square")
                     }
-                    .onReceive(
-                        NotificationCenter
-                            .default
-                            .publisher(
-                                for: .AVPlayerItemDidPlayToEndTime,
-                                object: self.avPlayer.currentItem),
-                                   perform: { _ in
-                                       self.avPlayer.seek(to: .zero)
-                                       self.avPlayer.play()
-                                    }
-                    )
+                }
             }
         }
         .ignoresSafeArea(.all)
