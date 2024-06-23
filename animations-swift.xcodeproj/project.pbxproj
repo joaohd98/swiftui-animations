@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC51B1CE2C2879D3007321BF /* BrushCircleAnimiation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC51B1CD2C2879D3007321BF /* BrushCircleAnimiation.swift */; };
 		DC6E43F92C24F93E00C1F5CE /* BrushAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6E43F82C24F93E00C1F5CE /* BrushAnimation.swift */; };
 		DC6E43FB2C24FC4C00C1F5CE /* new-york.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DC6E43FA2C24FC4C00C1F5CE /* new-york.mp4 */; };
 		DC6FD78A2C1D3D68008FB5FB /* SwiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6FD7892C1D3D68008FB5FB /* SwiftApp.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DC51B1CD2C2879D3007321BF /* BrushCircleAnimiation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrushCircleAnimiation.swift; sourceTree = "<group>"; };
 		DC6E43F82C24F93E00C1F5CE /* BrushAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrushAnimation.swift; sourceTree = "<group>"; };
 		DC6E43FA2C24FC4C00C1F5CE /* new-york.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = "new-york.mp4"; path = "Assets.xcassets/new-york.dataset/new-york.mp4"; sourceTree = "<group>"; };
 		DC6FD7862C1D3D68008FB5FB /* animations-swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "animations-swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +78,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DC51B1CC2C2879B9007321BF /* BrushCircle */ = {
+			isa = PBXGroup;
+			children = (
+				DC51B1CD2C2879D3007321BF /* BrushCircleAnimiation.swift */,
+			);
+			path = BrushCircle;
+			sourceTree = "<group>";
+		};
 		DC6E43F72C24F91C00C1F5CE /* Brush */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +139,7 @@
 		DC6FD7972C1DEB56008FB5FB /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				DC51B1CC2C2879B9007321BF /* BrushCircle */,
 				DC6E43F72C24F91C00C1F5CE /* Brush */,
 				DCE084ED2C211D7E00B43C18 /* Dot */,
 				DC6FD7982C1DEE7F008FB5FB /* RotationCarousel.swift */,
@@ -271,6 +282,7 @@
 				DC6FD79C2C1DEEA4008FB5FB /* photos.swift in Sources */,
 				DC6FD79E2C1E0DB3008FB5FB /* ParallaxCarousel.swift in Sources */,
 				DC6FD7A02C1E11BF008FB5FB /* ScrollViewWithVisualEffect.swift in Sources */,
+				DC51B1CE2C2879D3007321BF /* BrushCircleAnimiation.swift in Sources */,
 				DC883C5C2C1EAF8700BA0CFF /* MonthDayText.swift in Sources */,
 				DC883C612C1FC36400BA0CFF /* InterpolateValue.swift in Sources */,
 				DC6FD7AB2C1E2A7B008FB5FB /* RippleEffect.swift in Sources */,

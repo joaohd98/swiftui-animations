@@ -33,6 +33,9 @@ struct ContentView: View {
                 NavigationLink(destination: DotAnimations()) {
                     Text("Dot animation")
                 }
+                NavigationLink(destination: BrushCircleAnimation()) {
+                    Text("Brush Circle Animation")
+                }
                 NavigationLink(destination: BrushAnimation()) {
                     Text("Brush animation")
                 }

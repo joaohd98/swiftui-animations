@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>animations-swift.ipa</key>
+	<array>
+		<dict>
+			<key>architectures</key>
+			<array>
+				<string>arm64</string>
+			</array>
+			<key>buildNumber</key>
+			<string>1</string>
+			<key>certificate</key>
+			<dict>
+				<key>SHA1</key>
+				<string>9F00DCFB160E48F71C9001A34CEB793AC32FDB12</string>
+				<key>dateExpires</key>
+				<string>15/06/25</string>
+				<key>type</key>
+				<string>Cloud Managed Apple Distribution</string>
+			</dict>
+			<key>entitlements</key>
+			<dict>
+				<key>application-identifier</key>
+				<string>R8RR6LZ5DA.com.KitchenetDash</string>
+				<key>com.apple.developer.team-identifier</key>
+				<string>R8RR6LZ5DA</string>
+				<key>get-task-allow</key>
+				<false/>
+			</dict>
+			<key>name</key>
+			<string>animations-swift.app</string>
+			<key>profile</key>
+			<dict>
+				<key>UUID</key>
+				<string>40cd3e1d-789e-4b76-a97e-7dc5bd4ba156</string>
+				<key>dateExpires</key>
+				<string>19/06/25</string>
+				<key>name</key>
+				<string>iOS Team Ad Hoc Provisioning Profile: com.KitchenetDash</string>
+			</dict>
+			<key>team</key>
+			<dict>
+				<key>id</key>
+				<string>R8RR6LZ5DA</string>
+				<key>name</key>
+				<string>VSTP Educacao Ltda</string>
+			</dict>
+			<key>versionNumber</key>
+			<string>1.0</string>
+		</dict>
+	</array>
+</dict>
+</plist>
