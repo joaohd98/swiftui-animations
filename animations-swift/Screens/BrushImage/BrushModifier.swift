@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct BrushModifier: ViewModifier {
+struct BrushImageModifier: ViewModifier {
     var origin: CGPoint
-    var destination: CGPoint
+    var dragProgress: CGFloat
     var elapsedTime: TimeInterval
     var duration: TimeInterval
 
@@ -21,7 +21,7 @@ struct BrushModifier: ViewModifier {
     func body(content: Content) -> some View {
         let shader = ShaderLibrary.Brush(
             .float2(origin),
-            .float2(destination),
+            .float(dragProgress),
             .float(elapsedTime),
             .float(amplitude),
             .float(frequency),
@@ -47,18 +47,18 @@ struct BrushModifier: ViewModifier {
     }
 }
 
-struct BrushModifierEffect: ViewModifier {
+struct BrushImageModifierEffect: ViewModifier {
     var origin: CGPoint
-    var destination: CGPoint
+    var dragProgress: CGFloat
     var duration: TimeInterval { 2 }
     
     func body(content: Content) -> some View {
         content.keyframeAnimator(initialValue: 0.0, trigger: origin) {
         [origin] view, elapsedTime in
             view.modifier(
-                BrushModifier(
+                BrushImageModifier(
                     origin: origin,
-                    destination: destination,
+                    dragProgress: dragProgress,
                     elapsedTime: elapsedTime,
                     duration: duration
                 )

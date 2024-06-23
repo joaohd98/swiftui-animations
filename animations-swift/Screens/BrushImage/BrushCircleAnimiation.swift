@@ -8,17 +8,7 @@
 import SwiftUI
 import AVKit
 
-enum DirectionHorizontal {
-    case left, right, center, none
-}
-
-enum DirectionVertical {
-    case up, down, none
-}
-
-struct BrushCircleAnimation: View {
-    @State private var counter = 0
-    @State private var position = 0
+struct BrushImage: View {
     @State private var isDragging = false
     @State private var dragProgress = 0.0
     @State private var initialPosition: CGPoint = .zero
@@ -40,8 +30,6 @@ struct BrushCircleAnimation: View {
                 )
             }
             .onEnded { values in
-                self.counter += 1
-
                 withAnimation {
                     self.dragProgress = self.dragProgress > 0.15 ? 1 : 0
                 } completion: {
@@ -58,7 +46,7 @@ struct BrushCircleAnimation: View {
                 Image(uiImage: .newYork)
                     .resizable()
                     .frame(width: proxy.size.width, height: proxy.size.height)
-                    .modifier(BrushModifierEffect(origin: initialPosition, destination: currentPosition))
+                    .modifier(BrushImageModifierEffect(origin: initialPosition, dragProgress: dragProgress))
                     .blur(radius: interpolateValue(dragProgress, minValue: 0, maxValue: 24))
          
                 Image(uiImage: .grandCanal)
@@ -98,5 +86,5 @@ struct BrushCircleAnimation: View {
 }
 
 #Preview {
-    BrushCircleAnimation()
+    BrushImage()
 }

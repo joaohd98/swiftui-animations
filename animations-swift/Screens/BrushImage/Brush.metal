@@ -13,7 +13,7 @@ half4 Brush(
     float2 position,
     SwiftUI::Layer layer,
     float2 origin,
-    float2 destination,
+    float dragProgress,
     float time,
     float amplitude,
     float frequency,

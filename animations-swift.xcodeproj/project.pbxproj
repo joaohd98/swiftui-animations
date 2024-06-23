@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		DC46BB962C289EED004D9D51 /* Brush.metal in Sources */ = {isa = PBXBuildFile; fileRef = DC46BB952C289EED004D9D51 /* Brush.metal */; };
 		DC46BB982C28A0BE004D9D51 /* BrushModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC46BB972C28A0BE004D9D51 /* BrushModifier.swift */; };
+		DC46BB9B2C28A7AC004D9D51 /* BrushVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC46BB9A2C28A7AC004D9D51 /* BrushVideo.swift */; };
 		DC51B1CE2C2879D3007321BF /* BrushCircleAnimiation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC51B1CD2C2879D3007321BF /* BrushCircleAnimiation.swift */; };
 		DC6E43F92C24F93E00C1F5CE /* BrushAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6E43F82C24F93E00C1F5CE /* BrushAnimation.swift */; };
 		DC6E43FB2C24FC4C00C1F5CE /* new-york.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DC6E43FA2C24FC4C00C1F5CE /* new-york.mp4 */; };
@@ -41,6 +42,7 @@
 /* Begin PBXFileReference section */
 		DC46BB952C289EED004D9D51 /* Brush.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Brush.metal; sourceTree = "<group>"; };
 		DC46BB972C28A0BE004D9D51 /* BrushModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrushModifier.swift; sourceTree = "<group>"; };
+		DC46BB9A2C28A7AC004D9D51 /* BrushVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrushVideo.swift; sourceTree = "<group>"; };
 		DC51B1CD2C2879D3007321BF /* BrushCircleAnimiation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrushCircleAnimiation.swift; sourceTree = "<group>"; };
 		DC6E43F82C24F93E00C1F5CE /* BrushAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrushAnimation.swift; sourceTree = "<group>"; };
 		DC6E43FA2C24FC4C00C1F5CE /* new-york.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = "new-york.mp4"; path = "Assets.xcassets/new-york.dataset/new-york.mp4"; sourceTree = "<group>"; };
@@ -82,22 +84,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		DC51B1CC2C2879B9007321BF /* BrushCircle */ = {
+		DC46BB992C28A764004D9D51 /* BrushVideo */ = {
+			isa = PBXGroup;
+			children = (
+				DC46BB9A2C28A7AC004D9D51 /* BrushVideo.swift */,
+			);
+			path = BrushVideo;
+			sourceTree = "<group>";
+		};
+		DC51B1CC2C2879B9007321BF /* BrushImage */ = {
 			isa = PBXGroup;
 			children = (
 				DC51B1CD2C2879D3007321BF /* BrushCircleAnimiation.swift */,
 				DC46BB952C289EED004D9D51 /* Brush.metal */,
 				DC46BB972C28A0BE004D9D51 /* BrushModifier.swift */,
 			);
-			path = BrushCircle;
+			path = BrushImage;
 			sourceTree = "<group>";
 		};
-		DC6E43F72C24F91C00C1F5CE /* Brush */ = {
+		DC6E43F72C24F91C00C1F5CE /* BrushTouch */ = {
 			isa = PBXGroup;
 			children = (
 				DC6E43F82C24F93E00C1F5CE /* BrushAnimation.swift */,
 			);
-			path = Brush;
+			path = BrushTouch;
 			sourceTree = "<group>";
 		};
 		DC6FD77D2C1D3D68008FB5FB = {
@@ -145,8 +155,9 @@
 		DC6FD7972C1DEB56008FB5FB /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				DC51B1CC2C2879B9007321BF /* BrushCircle */,
-				DC6E43F72C24F91C00C1F5CE /* Brush */,
+				DC46BB992C28A764004D9D51 /* BrushVideo */,
+				DC51B1CC2C2879B9007321BF /* BrushImage */,
+				DC6E43F72C24F91C00C1F5CE /* BrushTouch */,
 				DCE084ED2C211D7E00B43C18 /* Dot */,
 				DC6FD7982C1DEE7F008FB5FB /* RotationCarousel.swift */,
 				DC6FD79D2C1E0DB3008FB5FB /* ParallaxCarousel.swift */,
@@ -290,6 +301,7 @@
 				DC6FD79E2C1E0DB3008FB5FB /* ParallaxCarousel.swift in Sources */,
 				DC6FD7A02C1E11BF008FB5FB /* ScrollViewWithVisualEffect.swift in Sources */,
 				DC51B1CE2C2879D3007321BF /* BrushCircleAnimiation.swift in Sources */,
+				DC46BB9B2C28A7AC004D9D51 /* BrushVideo.swift in Sources */,
 				DC883C5C2C1EAF8700BA0CFF /* MonthDayText.swift in Sources */,
 				DC883C612C1FC36400BA0CFF /* InterpolateValue.swift in Sources */,
 				DC6FD7AB2C1E2A7B008FB5FB /* RippleEffect.swift in Sources */,

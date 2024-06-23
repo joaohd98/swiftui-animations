@@ -33,11 +33,14 @@ struct ContentView: View {
                 NavigationLink(destination: DotAnimations()) {
                     Text("Dot animation")
                 }
-                NavigationLink(destination: BrushCircleAnimation()) {
-                    Text("Brush Circle Animation")
+                NavigationLink(destination: BrushVideo()) {
+                    Text("Brush Video Animation")
                 }
-                NavigationLink(destination: BrushAnimation()) {
-                    Text("Brush animation")
+                NavigationLink(destination: BrushTouchAnimation()) {
+                    Text("Brush Touch animation")
+                }
+                NavigationLink(destination: BrushImage()) {
+                    Text("Brush image animation")
                 }
             }
             .navigationBarHidden(true)

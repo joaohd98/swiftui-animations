@@ -8,7 +8,7 @@
 import SwiftUI
 import AVKit
 
-struct BrushAnimation: View {
+struct BrushTouchAnimation: View {
     @State var origin: CGPoint = .zero
     @State var counter: Int = 0
     
@@ -43,5 +43,5 @@ struct BrushAnimation: View {
 }
 
 #Preview {
-    BrushAnimation()
+    BrushTouchAnimation()
 }
