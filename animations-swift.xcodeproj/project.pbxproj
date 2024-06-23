@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC46BB962C289EED004D9D51 /* Brush.metal in Sources */ = {isa = PBXBuildFile; fileRef = DC46BB952C289EED004D9D51 /* Brush.metal */; };
+		DC46BB982C28A0BE004D9D51 /* BrushModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC46BB972C28A0BE004D9D51 /* BrushModifier.swift */; };
 		DC51B1CE2C2879D3007321BF /* BrushCircleAnimiation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC51B1CD2C2879D3007321BF /* BrushCircleAnimiation.swift */; };
 		DC6E43F92C24F93E00C1F5CE /* BrushAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6E43F82C24F93E00C1F5CE /* BrushAnimation.swift */; };
 		DC6E43FB2C24FC4C00C1F5CE /* new-york.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DC6E43FA2C24FC4C00C1F5CE /* new-york.mp4 */; };
@@ -37,6 +39,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DC46BB952C289EED004D9D51 /* Brush.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Brush.metal; sourceTree = "<group>"; };
+		DC46BB972C28A0BE004D9D51 /* BrushModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrushModifier.swift; sourceTree = "<group>"; };
 		DC51B1CD2C2879D3007321BF /* BrushCircleAnimiation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrushCircleAnimiation.swift; sourceTree = "<group>"; };
 		DC6E43F82C24F93E00C1F5CE /* BrushAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrushAnimation.swift; sourceTree = "<group>"; };
 		DC6E43FA2C24FC4C00C1F5CE /* new-york.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = "new-york.mp4"; path = "Assets.xcassets/new-york.dataset/new-york.mp4"; sourceTree = "<group>"; };
@@ -82,6 +86,8 @@
 			isa = PBXGroup;
 			children = (
 				DC51B1CD2C2879D3007321BF /* BrushCircleAnimiation.swift */,
+				DC46BB952C289EED004D9D51 /* Brush.metal */,
+				DC46BB972C28A0BE004D9D51 /* BrushModifier.swift */,
 			);
 			path = BrushCircle;
 			sourceTree = "<group>";
@@ -280,6 +286,7 @@
 			files = (
 				DC6FD7A72C1E19B9008FB5FB /* MeshGradient.swift in Sources */,
 				DC6FD79C2C1DEEA4008FB5FB /* photos.swift in Sources */,
+				DC46BB982C28A0BE004D9D51 /* BrushModifier.swift in Sources */,
 				DC6FD79E2C1E0DB3008FB5FB /* ParallaxCarousel.swift in Sources */,
 				DC6FD7A02C1E11BF008FB5FB /* ScrollViewWithVisualEffect.swift in Sources */,
 				DC51B1CE2C2879D3007321BF /* BrushCircleAnimiation.swift in Sources */,
@@ -294,6 +301,7 @@
 				DC883C5E2C1EB16B00BA0CFF /* BottomInput.swift in Sources */,
 				DC6FD78A2C1D3D68008FB5FB /* SwiftApp.swift in Sources */,
 				DC6FD7AD2C1E2FD8008FB5FB /* Ripple.metal in Sources */,
+				DC46BB962C289EED004D9D51 /* Brush.metal in Sources */,
 				DC883C5A2C1EA39700BA0CFF /* HourText.swift in Sources */,
 				DC7DCA562C2753D5005F6393 /* VideoLoop.swift in Sources */,
 				DC6E43F92C24F93E00C1F5CE /* BrushAnimation.swift in Sources */,
