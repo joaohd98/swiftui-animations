@@ -26,6 +26,7 @@
 		DC6FD7AF2C1E9F25008FB5FB /* DotAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6FD7AE2C1E9F25008FB5FB /* DotAnimations.swift */; };
 		DC7DCA562C2753D5005F6393 /* VideoLoop.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7DCA552C2753D5005F6393 /* VideoLoop.swift */; };
 		DC7DCA592C275A7D005F6393 /* grand-canal.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DC7DCA582C275A7D005F6393 /* grand-canal.mp4 */; };
+		DC7DCA5E2C27683E005F6393 /* Wave in Frameworks */ = {isa = PBXBuildFile; productRef = DC7DCA5D2C27683E005F6393 /* Wave */; };
 		DC883C5A2C1EA39700BA0CFF /* HourText.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC883C592C1EA39700BA0CFF /* HourText.swift */; };
 		DC883C5C2C1EAF8700BA0CFF /* MonthDayText.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC883C5B2C1EAF8700BA0CFF /* MonthDayText.swift */; };
 		DC883C5E2C1EB16B00BA0CFF /* BottomInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC883C5D2C1EB16B00BA0CFF /* BottomInput.swift */; };
@@ -68,6 +69,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC6FD7A52C1E1800008FB5FB /* MulticolorGradient in Frameworks */,
+				DC7DCA5E2C27683E005F6393 /* Wave in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,6 +205,7 @@
 			name = "animations-swift";
 			packageProductDependencies = (
 				DC6FD7A42C1E1800008FB5FB /* MulticolorGradient */,
+				DC7DCA5D2C27683E005F6393 /* Wave */,
 			);
 			productName = "animations-swift";
 			productReference = DC6FD7862C1D3D68008FB5FB /* animations-swift.app */;
@@ -234,6 +237,7 @@
 			mainGroup = DC6FD77D2C1D3D68008FB5FB;
 			packageReferences = (
 				DC6FD7A32C1E1800008FB5FB /* XCRemoteSwiftPackageReference "SwiftUI-MulticolorGradient" */,
+				DC7DCA5C2C27683E005F6393 /* XCRemoteSwiftPackageReference "Wave" */,
 			);
 			productRefGroup = DC6FD7872C1D3D68008FB5FB /* Products */;
 			projectDirPath = "";
@@ -498,6 +502,14 @@
 				kind = branch;
 			};
 		};
+		DC7DCA5C2C27683E005F6393 /* XCRemoteSwiftPackageReference "Wave" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jtrivedi/Wave";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.3.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -505,6 +517,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DC6FD7A32C1E1800008FB5FB /* XCRemoteSwiftPackageReference "SwiftUI-MulticolorGradient" */;
 			productName = MulticolorGradient;
+		};
+		DC7DCA5D2C27683E005F6393 /* Wave */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC7DCA5C2C27683E005F6393 /* XCRemoteSwiftPackageReference "Wave" */;
+			productName = Wave;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

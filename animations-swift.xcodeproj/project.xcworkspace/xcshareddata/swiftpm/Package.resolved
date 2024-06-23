@@ -1,5 +1,5 @@
 {
-  "originHash" : "9db9c603281a157ca42749acaad8ffdce5fec17210290519e327adccd2d3dfff",
+  "originHash" : "f4fa99f0247947d27df15cd2259b4dc29609122bd732f46c0eb9380f423ff3be",
   "pins" : [
     {
       "identity" : "swiftui-multicolorgradient",
@@ -8,6 +8,15 @@
       "state" : {
         "branch" : "main",
         "revision" : "6f80da646b607d2e3cbacc259eb41f2912ea6e4f"
+      }
+    },
+    {
+      "identity" : "wave",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/jtrivedi/Wave",
+      "state" : {
+        "revision" : "d95ce41fa52c42d9790388e9086c892930e9e48b",
+        "version" : "0.3.2"
       }
     }
   ],

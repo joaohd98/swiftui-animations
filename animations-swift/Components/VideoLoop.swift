@@ -10,44 +10,35 @@ import AVFoundation
 import AVKit
 
 struct VideoLoop: View {
+    let name: String
     let height: CGFloat
     let width: CGFloat
     
-    private let video: URL
-    private let avPlayer: AVPlayer
-    
-    private let blurRadius = 10.0
-    private let alphaThreshold = 0.2
-    
-    init(name: String, height: CGFloat,  width: CGFloat) {
-        self.height = height
-        self.width = width
-
-        self.video = Bundle.main.url(forResource: name, withExtension: "mp4")!
-        self.avPlayer = AVPlayer(url: video)
-        self.avPlayer.isMuted = true
-    }
-    
     var body: some View {
-        VideoPlayer(player: avPlayer)
-            .aspectRatio(contentMode: .fill)
-            .disabled(true)
-            .onAppear {
-                avPlayer.play()
-            }
+        Color.white
             .frame(width: self.width, height: self.height)
-            .onReceive(
-                NotificationCenter
-                    .default
-                    .publisher(
-                        for: .AVPlayerItemDidPlayToEndTime,
-                        object: self.avPlayer.currentItem),
-                           perform: { _ in
-                               self.avPlayer.seek(to: .zero)
-                               self.avPlayer.play()
-                            }
-            )
-            .clipped()
+            .overlay {
+                let video = Bundle.main.url(forResource: self.name, withExtension: "mp4")!
+                let avPlayer = AVPlayer(url: video)
+                avPlayer.isMuted = true
+                avPlayer.play()
+                
+                return VideoPlayer(player: avPlayer)
+                    .aspectRatio(contentMode: .fill)
+                    .disabled(true)
+                    .onReceive(
+                        NotificationCenter
+                            .default
+                            .publisher(
+                                for: .AVPlayerItemDidPlayToEndTime,
+                                object: avPlayer.currentItem),
+                                   perform: { _ in
+                                       avPlayer.seek(to: .zero)
+                                       avPlayer.play()
+                                    }
+                    )
+            }
+       
     }
 }
 
