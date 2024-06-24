@@ -44,7 +44,6 @@ struct BrushVideo: View {
                     height: proxy.size.height,
                     width: proxy.size.width
                 )
-                .modifier(BrushImageModifierEffect(origin: initialPosition, dragProgress: dragProgress))
                 .blur(radius: interpolateValue(dragProgress, minValue: 0, maxValue: 24))
                 
                 VideoLoop(

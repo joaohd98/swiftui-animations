@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		DC46BB962C289EED004D9D51 /* Brush.metal in Sources */ = {isa = PBXBuildFile; fileRef = DC46BB952C289EED004D9D51 /* Brush.metal */; };
-		DC46BB982C28A0BE004D9D51 /* BrushModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC46BB972C28A0BE004D9D51 /* BrushModifier.swift */; };
+		DC46BB982C28A0BE004D9D51 /* BrushImageModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC46BB972C28A0BE004D9D51 /* BrushImageModifier.swift */; };
 		DC46BB9B2C28A7AC004D9D51 /* BrushVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC46BB9A2C28A7AC004D9D51 /* BrushVideo.swift */; };
-		DC51B1CE2C2879D3007321BF /* BrushCircleAnimiation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC51B1CD2C2879D3007321BF /* BrushCircleAnimiation.swift */; };
+		DC51B1CE2C2879D3007321BF /* BrushImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC51B1CD2C2879D3007321BF /* BrushImage.swift */; };
 		DC6E43F92C24F93E00C1F5CE /* BrushAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6E43F82C24F93E00C1F5CE /* BrushAnimation.swift */; };
 		DC6E43FB2C24FC4C00C1F5CE /* new-york.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DC6E43FA2C24FC4C00C1F5CE /* new-york.mp4 */; };
 		DC6FD78A2C1D3D68008FB5FB /* SwiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6FD7892C1D3D68008FB5FB /* SwiftApp.swift */; };
@@ -42,9 +42,9 @@
 
 /* Begin PBXFileReference section */
 		DC46BB952C289EED004D9D51 /* Brush.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Brush.metal; sourceTree = "<group>"; };
-		DC46BB972C28A0BE004D9D51 /* BrushModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrushModifier.swift; sourceTree = "<group>"; };
+		DC46BB972C28A0BE004D9D51 /* BrushImageModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrushImageModifier.swift; sourceTree = "<group>"; };
 		DC46BB9A2C28A7AC004D9D51 /* BrushVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrushVideo.swift; sourceTree = "<group>"; };
-		DC51B1CD2C2879D3007321BF /* BrushCircleAnimiation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrushCircleAnimiation.swift; sourceTree = "<group>"; };
+		DC51B1CD2C2879D3007321BF /* BrushImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrushImage.swift; sourceTree = "<group>"; };
 		DC6E43F82C24F93E00C1F5CE /* BrushAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrushAnimation.swift; sourceTree = "<group>"; };
 		DC6E43FA2C24FC4C00C1F5CE /* new-york.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = "new-york.mp4"; path = "Assets.xcassets/new-york.dataset/new-york.mp4"; sourceTree = "<group>"; };
 		DC6FD7862C1D3D68008FB5FB /* animations-swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "animations-swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,9 +97,9 @@
 		DC51B1CC2C2879B9007321BF /* BrushImage */ = {
 			isa = PBXGroup;
 			children = (
-				DC51B1CD2C2879D3007321BF /* BrushCircleAnimiation.swift */,
+				DC51B1CD2C2879D3007321BF /* BrushImage.swift */,
 				DC46BB952C289EED004D9D51 /* Brush.metal */,
-				DC46BB972C28A0BE004D9D51 /* BrushModifier.swift */,
+				DC46BB972C28A0BE004D9D51 /* BrushImageModifier.swift */,
 			);
 			path = BrushImage;
 			sourceTree = "<group>";
@@ -301,10 +301,10 @@
 			files = (
 				DC6FD7A72C1E19B9008FB5FB /* MeshGradient.swift in Sources */,
 				DC6FD79C2C1DEEA4008FB5FB /* photos.swift in Sources */,
-				DC46BB982C28A0BE004D9D51 /* BrushModifier.swift in Sources */,
+				DC46BB982C28A0BE004D9D51 /* BrushImageModifier.swift in Sources */,
 				DC6FD79E2C1E0DB3008FB5FB /* ParallaxCarousel.swift in Sources */,
 				DC6FD7A02C1E11BF008FB5FB /* ScrollViewWithVisualEffect.swift in Sources */,
-				DC51B1CE2C2879D3007321BF /* BrushCircleAnimiation.swift in Sources */,
+				DC51B1CE2C2879D3007321BF /* BrushImage.swift in Sources */,
 				DC46BB9B2C28A7AC004D9D51 /* BrushVideo.swift in Sources */,
 				DC883C5C2C1EAF8700BA0CFF /* MonthDayText.swift in Sources */,
 				DC883C612C1FC36400BA0CFF /* InterpolateValue.swift in Sources */,
