@@ -35,6 +35,7 @@
 		DC883C5C2C1EAF8700BA0CFF /* MonthDayText.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC883C5B2C1EAF8700BA0CFF /* MonthDayText.swift */; };
 		DC883C5E2C1EB16B00BA0CFF /* BottomInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC883C5D2C1EB16B00BA0CFF /* BottomInput.swift */; };
 		DC883C612C1FC36400BA0CFF /* InterpolateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC883C602C1FC36400BA0CFF /* InterpolateValue.swift */; };
+		DC90C4862C291BF100AFDD06 /* VideoPlayerContainer in Frameworks */ = {isa = PBXBuildFile; productRef = DC90C4852C291BF100AFDD06 /* VideoPlayerContainer */; };
 		DCE084EF2C211D9800B43C18 /* GoodMorningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE084EE2C211D9800B43C18 /* GoodMorningView.swift */; };
 		DCE084F22C211DBE00B43C18 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE084F12C211DBE00B43C18 /* Color.swift */; };
 /* End PBXBuildFile section */
@@ -77,6 +78,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC6FD7A52C1E1800008FB5FB /* MulticolorGradient in Frameworks */,
+				DC90C4862C291BF100AFDD06 /* VideoPlayerContainer in Frameworks */,
 				DC7DCA5E2C27683E005F6393 /* Wave in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -234,6 +236,7 @@
 			packageProductDependencies = (
 				DC6FD7A42C1E1800008FB5FB /* MulticolorGradient */,
 				DC7DCA5D2C27683E005F6393 /* Wave */,
+				DC90C4852C291BF100AFDD06 /* VideoPlayerContainer */,
 			);
 			productName = "animations-swift";
 			productReference = DC6FD7862C1D3D68008FB5FB /* animations-swift.app */;
@@ -266,6 +269,7 @@
 			packageReferences = (
 				DC6FD7A32C1E1800008FB5FB /* XCRemoteSwiftPackageReference "SwiftUI-MulticolorGradient" */,
 				DC7DCA5C2C27683E005F6393 /* XCRemoteSwiftPackageReference "Wave" */,
+				DC90C4842C291BF100AFDD06 /* XCRemoteSwiftPackageReference "VideoPlayerContainer" */,
 			);
 			productRefGroup = DC6FD7872C1D3D68008FB5FB /* Products */;
 			projectDirPath = "";
@@ -542,6 +546,14 @@
 				minimumVersion = 0.3.2;
 			};
 		};
+		DC90C4842C291BF100AFDD06 /* XCRemoteSwiftPackageReference "VideoPlayerContainer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/shayanbo/VideoPlayerContainer.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -554,6 +566,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DC7DCA5C2C27683E005F6393 /* XCRemoteSwiftPackageReference "Wave" */;
 			productName = Wave;
+		};
+		DC90C4852C291BF100AFDD06 /* VideoPlayerContainer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC90C4842C291BF100AFDD06 /* XCRemoteSwiftPackageReference "VideoPlayerContainer" */;
+			productName = VideoPlayerContainer;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

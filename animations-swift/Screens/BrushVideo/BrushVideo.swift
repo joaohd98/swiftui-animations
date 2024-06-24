@@ -7,15 +7,6 @@
 //
 
 import SwiftUI
-import AVKit
-
-enum DirectionHorizontal {
-    case left, right, center, none
-}
-
-enum DirectionVertical {
-    case up, down, none
-}
 
 struct BrushVideo: View {
     @State private var position = 0
@@ -53,28 +44,29 @@ struct BrushVideo: View {
                     height: proxy.size.height,
                     width: proxy.size.width
                 )
+                .modifier(BrushImageModifierEffect(origin: initialPosition, dragProgress: dragProgress))
                 .blur(radius: interpolateValue(dragProgress, minValue: 0, maxValue: 24))
-
+                
                 VideoLoop(
                     name: "grand-canal",
                     height: proxy.size.height,
                     width: proxy.size.width
                 )
                 .mask {
-                    let maxWidth = interpolateValue(dragProgress, minValue: 150, maxValue: proxy.size.width * 4)
-                    let maxHeight = interpolateValue(dragProgress, minValue: 150, maxValue: proxy.size.height * 4)
-
+                    let maxWidth = interpolateValue(dragProgress, minValue: 50, maxValue: proxy.size.width * 4)
+                    let maxHeight = interpolateValue(dragProgress, minValue: 50, maxValue: proxy.size.height * 4)
+                    
                     let offsetX = proxy.size.width / 2 - initialPosition.x
                     let offsetY = proxy.size.height / 2 - initialPosition.y
-
+                    
                     ZStack {
                         Circle()
                             .frame(width: maxWidth, height: maxHeight)
-
+                        
                         Circle()
                             .frame(width: maxWidth * 1.1, height: maxHeight * 1.2)
                             .opacity(0.9)
-
+                        
                         Circle()
                             .frame(width: maxWidth * 1.2, height: maxHeight * 1.2)
                             .opacity(0.6)
@@ -84,6 +76,7 @@ struct BrushVideo: View {
                     }
                     .opacity(interpolateValue(dragProgress * 4, minValue: 0, maxValue: 1))
                     .offset(x: -offsetX, y: -offsetY)
+                    
                 }
             }
             .gesture(drag(width: proxy.size.width, height: proxy.size.height))

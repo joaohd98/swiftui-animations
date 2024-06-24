@@ -9,7 +9,6 @@ import SwiftUI
 
 struct BrushImageModifier: ViewModifier {
     var origin: CGPoint
-    var dragProgress: CGFloat
     var elapsedTime: TimeInterval
     var duration: TimeInterval
 
@@ -21,7 +20,6 @@ struct BrushImageModifier: ViewModifier {
     func body(content: Content) -> some View {
         let shader = ShaderLibrary.Brush(
             .float2(origin),
-            .float(dragProgress),
             .float(elapsedTime),
             .float(amplitude),
             .float(frequency),
@@ -29,37 +27,24 @@ struct BrushImageModifier: ViewModifier {
             .float(speed)
         )
         
-        if(origin != .zero) {
-            content.visualEffect { view, _ in
-                view.layerEffect(
-                    shader,
-                    maxSampleOffset: maxSampleOffset,
-                    isEnabled: 0 < elapsedTime && elapsedTime < duration
-                )
-            }
-        } else {
-            content
+        content.visualEffect { view, _ in
+            view.layerEffect(shader, maxSampleOffset: .zero)
         }
-    }
-    
-    var maxSampleOffset: CGSize {
-        CGSize(width: amplitude, height: amplitude)
     }
 }
 
 struct BrushImageModifierEffect: ViewModifier {
     var origin: CGPoint
     var dragProgress: CGFloat
-    var duration: TimeInterval { 2 }
+    var duration: TimeInterval { 1 }
     
     func body(content: Content) -> some View {
         content.keyframeAnimator(initialValue: 0.0, trigger: origin) {
-        [origin] view, elapsedTime in
+        [origin] view, _ in
             view.modifier(
                 BrushImageModifier(
                     origin: origin,
-                    dragProgress: dragProgress,
-                    elapsedTime: elapsedTime,
+                    elapsedTime: mapRange(inMin: 0, inMax: 0.55, outMin: 0, outMax: 1, valueToMap: dragProgress),
                     duration: duration
                 )
             )

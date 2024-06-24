@@ -1,5 +1,5 @@
 {
-  "originHash" : "f4fa99f0247947d27df15cd2259b4dc29609122bd732f46c0eb9380f423ff3be",
+  "originHash" : "746b623e4f3be57dc2d56d1ca18edf31ff560e016a77010e8f368321b68b42c4",
   "pins" : [
     {
       "identity" : "swiftui-multicolorgradient",
@@ -8,6 +8,15 @@
       "state" : {
         "branch" : "main",
         "revision" : "6f80da646b607d2e3cbacc259eb41f2912ea6e4f"
+      }
+    },
+    {
+      "identity" : "videoplayercontainer",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/shayanbo/VideoPlayerContainer.git",
+      "state" : {
+        "revision" : "c67b4754daef7c0e20cd64a499612602cbb57a84",
+        "version" : "1.0.0"
       }
     },
     {

@@ -47,7 +47,7 @@ struct BrushImage: View {
                     .resizable()
                     .frame(width: proxy.size.width, height: proxy.size.height)
                     .modifier(BrushImageModifierEffect(origin: initialPosition, dragProgress: dragProgress))
-                    .blur(radius: interpolateValue(dragProgress, minValue: 0, maxValue: 24))
+                    .blur(radius: interpolateValue(dragProgress, minValue: 0, maxValue: 18))
          
                 Image(uiImage: .grandCanal)
                     .resizable()
