@@ -15,6 +15,13 @@ let pictures: [UIImage] = [
     .picture3,
     .picture4,
     .picture5,
+    .picture6,
+    .picture0,
+    .picture1,
+    .picture2,
+    .picture3,
+    .picture4,
+    .picture5,
     .picture6
 ]
 
@@ -27,6 +34,20 @@ struct BrushImage: View {
 
     @State private var initialPosition: CGPoint = .zero
     
+    func calcMultiply(height: CGFloat, width: CGFloat) -> CGFloat {
+        let positionX = initialPosition.x
+        let positionY = initialPosition.y
+        let centerX = width / 2.0
+        let centerY = height / 2.0
+        
+        let maxDistance = sqrt(pow(centerX, 2) + pow(centerY, 2))
+        let distance = sqrt(pow(positionX - centerX, 2) + pow(positionY - centerY, 2))
+        
+        let scaledValue = 2.5 + (distance / maxDistance) * (5.0 - 2.5)
+        let clampedValue = min(max(scaledValue, 2.5), 5)
+        
+        return clampedValue
+    }
 
     func drag(width: CGFloat, height: CGFloat) -> some Gesture {
         let hasPrev = current > 0
@@ -36,10 +57,7 @@ struct BrushImage: View {
             .onChanged { values in
                 if self.isDragging == false {
                     UIImpactFeedbackGenerator(style: .light).impactOccurred()
-                    
-                    withAnimation {
-                        self.initialPosition = values.startLocation
-                    }
+                    self.initialPosition = values.startLocation
                 }
                         
                 self.isDragging = true
@@ -66,17 +84,17 @@ struct BrushImage: View {
                 }
             }
             .onEnded { values in
-                withAnimation {
+                withAnimation(.timingCurve(0.1, 0, 0.2, 1, duration: 0.5)) {
                     self.dragNextProgress = hasNext && self.dragNextProgress > 0.1 ? 1 : 0
                     self.dragPrevProgress = hasPrev && self.dragPrevProgress > 0.1 ? 1 : 0
                 } completion: {
                     self.isDragging = false
  
-                    if self.dragNextProgress > 0 {
+                    if self.dragNextProgress == 1 {
                         self.current += 1
                     }
                     
-                    if self.dragPrevProgress > 0 {
+                    if self.dragPrevProgress == 1 {
                         self.current -= 1
                     }
                     
@@ -90,6 +108,10 @@ struct BrushImage: View {
     var body: some View {
         GeometryReader { proxy in
             ZStack {
+                let multiply = calcMultiply(
+                    height: proxy.size.height, width: proxy.size.width
+                )
+                
                 let hasPrev = current > 0
                 let hasNext = current < pictures.count - 1
 
@@ -99,25 +121,18 @@ struct BrushImage: View {
                     Image(uiImage: previous)
                         .resizable()
                         .frame(width: proxy.size.width, height: proxy.size.height)
+                        .scaleEffect(1.1)
                 }
                 
+                let dragPrev = 1 - dragPrevProgress
+
                 Image(uiImage: pictures[current])
                     .resizable()
                     .frame(width: proxy.size.width, height: proxy.size.height)
+                    .scaleEffect(1.1)
                     .modifier(BrushImageModifierEffect(origin: initialPosition, dragProgress: dragNextProgress))
-                    .mask {
-                        let dragPrev = 1 - dragPrevProgress
-                        let maxWidth = interpolateValue(dragPrev, minValue: 0, maxValue: proxy.size.width * 2.5)
-                        let maxHeight = interpolateValue(dragPrev, minValue: 0, maxValue: proxy.size.height * 2.5)
-                        
-                        let offsetX = 0.0
-                        let offsetY = 0.0
-
-                        Circle()
-                            .frame(width: maxWidth, height: maxHeight)
-                            .opacity(1)
-                            .offset(x: -offsetX, y: -offsetY)
-                    }
+                    .blur(radius: interpolateValue(dragNextProgress, minValue: 0, maxValue: 30))
+                    .opacity(dragPrev)
                 
                 
                 if hasNext {
@@ -126,12 +141,13 @@ struct BrushImage: View {
                     Image(uiImage: next)
                         .resizable()
                         .frame(width: proxy.size.width, height: proxy.size.height)
+                        .scaleEffect(1.1)
                         .mask {
                             let maxWidth = interpolateValue(
-                                dragNextProgress, minValue: 50, maxValue: proxy.size.width * 2.5
+                                dragNextProgress, minValue: 50, maxValue: proxy.size.width * multiply
                             )
                             let maxHeight = interpolateValue(
-                                dragNextProgress, minValue: 50, maxValue: proxy.size.height * 2.5
+                                dragNextProgress, minValue: 50, maxValue: proxy.size.height * multiply
                             )
                             
                             let offsetX = proxy.size.width / 2 - initialPosition.x
