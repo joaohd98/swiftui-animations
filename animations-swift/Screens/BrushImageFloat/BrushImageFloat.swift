@@ -25,7 +25,7 @@ private let pictures: [UIImage] = [
     .picture6
 ]
 
-struct BrushImage: View {
+struct BrushImageFloat: View {
     @State private var current = 1
 
     @State private var isDragging = false
@@ -57,7 +57,6 @@ struct BrushImage: View {
             .onChanged { values in
                 if self.isDragging == false {
                     UIImpactFeedbackGenerator(style: .light).impactOccurred()
-                    self.initialPosition = values.startLocation
                 }
                         
                 self.isDragging = true
@@ -68,23 +67,25 @@ struct BrushImage: View {
                 }
 
                 if hasNext && values.translation.height > 0 {
+                    self.initialPosition = values.location
+
                     self.dragNextProgress = mapRange(
-                        inMin: 0, inMax: height * 0.7, outMin: 0, outMax: 1, valueToMap: abs(values.translation.height)
+                        inMin: 0, inMax: height * 0.9, outMin: 0, outMax: 1, valueToMap: abs(values.translation.height)
                     )
                     
                     self.dragPrevProgress = 0
-                } 
+                }
                 
                 if hasPrev && values.translation.height < 0 {
                     self.dragPrevProgress = mapRange(
-                        inMin: 0, inMax: height * 0.7, outMin: 0, outMax: 1, valueToMap: abs(values.translation.height)
+                        inMin: 0, inMax: height * 0.9, outMin: 0, outMax: 1, valueToMap: abs(values.translation.height)
                     )
 
                     self.dragNextProgress = 0
                 }
             }
             .onEnded { values in
-                withAnimation(.timingCurve(0.1, 0, 0.2, 1, duration: 0.5)) {
+                withAnimation(.timingCurve(0.1, 0, 0.2, 1, duration: 0.6)) {
                     self.dragNextProgress = hasNext && self.dragNextProgress > 0.1 ? 1 : 0
                     self.dragPrevProgress = hasPrev && self.dragPrevProgress > 0.1 ? 1 : 0
                 } completion: {
@@ -108,9 +109,7 @@ struct BrushImage: View {
     var body: some View {
         GeometryReader { proxy in
             ZStack {
-                let multiply = calcMultiply(
-                    height: proxy.size.height, width: proxy.size.width
-                )
+                let multiply = calcMultiply(height: proxy.size.height, width: proxy.size.width)
                 
                 let hasPrev = current > 0
                 let hasNext = current < pictures.count - 1
@@ -169,5 +168,5 @@ struct BrushImage: View {
 }
 
 #Preview {
-    BrushImage()
+    BrushImageFloat()
 }
