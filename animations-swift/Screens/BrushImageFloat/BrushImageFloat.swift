@@ -154,9 +154,14 @@ struct BrushImageFloat: View {
                             let opacity = mapRange(inMin: 0, inMax: 0.1, outMin: 0, outMax: 1, valueToMap: dragNextProgress)
                             
                             Circle()
-                                .frame(width: maxWidth, height: maxHeight)
+                                .shadow(color: .red, radius: 10, x: -0.5, y: -0.5)
+                                .shadow(color: .red, radius: 10, x: 0.5, y: -0.5)
+                                .shadow(color: .red, radius: 10, x: -0.5, y: 0.5)
+                                .shadow(color: .red, radius: 10, x: 0.5, y: 0.5)
+                                .frame(width: maxWidth * 0.9, height: maxHeight * 0.9)
                                 .opacity(interpolateValue(opacity, minValue: 0, maxValue: 1))
                                 .offset(x: -offsetX, y: -offsetY)
+
                         }
                 }
             }

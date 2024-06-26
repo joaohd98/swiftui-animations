@@ -100,8 +100,6 @@
 			isa = PBXGroup;
 			children = (
 				DC51B1CD2C2879D3007321BF /* BrushImage.swift */,
-				DC46BB952C289EED004D9D51 /* Brush.metal */,
-				DC46BB972C28A0BE004D9D51 /* BrushImageModifier.swift */,
 			);
 			path = BrushImage;
 			sourceTree = "<group>";
@@ -109,6 +107,8 @@
 		DC59F4A72C2A8AB900004360 /* BrushImageFloat */ = {
 			isa = PBXGroup;
 			children = (
+				DC46BB952C289EED004D9D51 /* Brush.metal */,
+				DC46BB972C28A0BE004D9D51 /* BrushImageModifier.swift */,
 				DC59F4A82C2A8AC900004360 /* BrushImageFloat.swift */,
 			);
 			path = BrushImageFloat;
