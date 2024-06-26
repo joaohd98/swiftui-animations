@@ -17,7 +17,8 @@ struct NotchAnimation: View {
         GeometryReader {
 //            let size = $0.size
             let safeArea = $0.safeAreaInsets
-            
+            let hasDynamicIsland = safeArea.top > 51
+
             Group {
                 VStack {
                     Circle()
@@ -33,7 +34,7 @@ struct NotchAnimation: View {
                             return ["header": $0]
                         })
                         .padding(.top, safeArea.top + 12)
-                        .padding(.top, enterAnimation ? 0 : -56)
+                        .padding(.top, enterAnimation ? 0 : hasDynamicIsland ? -56 : -60)
 
 
                     Spacer()
@@ -125,7 +126,7 @@ struct NotchAnimation: View {
                                         if let dynamicIsland = out.resolveSymbol(id: 1) {
                                             let rect = CGRect(
                                                 x: (size.width - 120) / 2,
-                                                y: 12,
+                                                y: hasDynamicIsland ? 12 : -10,
                                                 width: 120,
                                                 height: 37
                                             )
@@ -164,4 +165,5 @@ struct NotchAnimation: View {
 
 #Preview {
     NotchAnimation()
+        .previewDevice(PreviewDevice(rawValue: "iPhone 12"))
 }

@@ -44,6 +44,7 @@
 		DC95EE812C2BBDB800140C0A /* AutautGrotesk-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC95EE7C2C2BBDB800140C0A /* AutautGrotesk-Medium.ttf */; };
 		DC95EE822C2BBDB800140C0A /* AutautGrotesk-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC95EE7D2C2BBDB800140C0A /* AutautGrotesk-Black.ttf */; };
 		DC95EE852C2BD71700140C0A /* AnchorKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC95EE842C2BD71700140C0A /* AnchorKey.swift */; };
+		DCCD4FC72C2CB74B00F051D8 /* BrushNotchAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCD4FC62C2CB74B00F051D8 /* BrushNotchAnimation.swift */; };
 		DCE084EF2C211D9800B43C18 /* GoodMorningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE084EE2C211D9800B43C18 /* GoodMorningView.swift */; };
 		DCE084F22C211DBE00B43C18 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE084F12C211DBE00B43C18 /* Color.swift */; };
 /* End PBXBuildFile section */
@@ -85,6 +86,7 @@
 		DC95EE7C2C2BBDB800140C0A /* AutautGrotesk-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AutautGrotesk-Medium.ttf"; sourceTree = "<group>"; };
 		DC95EE7D2C2BBDB800140C0A /* AutautGrotesk-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AutautGrotesk-Black.ttf"; sourceTree = "<group>"; };
 		DC95EE842C2BD71700140C0A /* AnchorKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnchorKey.swift; sourceTree = "<group>"; };
+		DCCD4FC62C2CB74B00F051D8 /* BrushNotchAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrushNotchAnimation.swift; sourceTree = "<group>"; };
 		DCE084EE2C211D9800B43C18 /* GoodMorningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodMorningView.swift; sourceTree = "<group>"; };
 		DCE084F12C211DBE00B43C18 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -185,6 +187,7 @@
 		DC6FD7972C1DEB56008FB5FB /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				DCCD4FC52C2CB73300F051D8 /* BrushNotchAnimation */,
 				DC95EE5D2C2BB20600140C0A /* NotchAnimation */,
 				DC59F4A72C2A8AB900004360 /* BrushImageFloat */,
 				DC46BB992C28A764004D9D51 /* BrushVideo */,
@@ -256,6 +259,14 @@
 				DC95EE842C2BD71700140C0A /* AnchorKey.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		DCCD4FC52C2CB73300F051D8 /* BrushNotchAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				DCCD4FC62C2CB74B00F051D8 /* BrushNotchAnimation.swift */,
+			);
+			path = BrushNotchAnimation;
 			sourceTree = "<group>";
 		};
 		DCE084ED2C211D7E00B43C18 /* Dot */ = {
@@ -386,6 +397,7 @@
 				DC59F4A92C2A8AC900004360 /* BrushImageFloat.swift in Sources */,
 				DC883C5A2C1EA39700BA0CFF /* HourText.swift in Sources */,
 				DC7DCA562C2753D5005F6393 /* VideoLoop.swift in Sources */,
+				DCCD4FC72C2CB74B00F051D8 /* BrushNotchAnimation.swift in Sources */,
 				DC6E43F92C24F93E00C1F5CE /* BrushAnimation.swift in Sources */,
 				DC6FD7AF2C1E9F25008FB5FB /* DotAnimations.swift in Sources */,
 				DCE084F22C211DBE00B43C18 /* Color.swift in Sources */,
