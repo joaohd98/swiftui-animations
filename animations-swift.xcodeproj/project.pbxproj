@@ -43,6 +43,7 @@
 		DC95EE802C2BBDB800140C0A /* AutautGrotesk-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC95EE7B2C2BBDB800140C0A /* AutautGrotesk-Semibold.ttf */; };
 		DC95EE812C2BBDB800140C0A /* AutautGrotesk-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC95EE7C2C2BBDB800140C0A /* AutautGrotesk-Medium.ttf */; };
 		DC95EE822C2BBDB800140C0A /* AutautGrotesk-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC95EE7D2C2BBDB800140C0A /* AutautGrotesk-Black.ttf */; };
+		DC95EE852C2BD71700140C0A /* AnchorKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC95EE842C2BD71700140C0A /* AnchorKey.swift */; };
 		DCE084EF2C211D9800B43C18 /* GoodMorningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE084EE2C211D9800B43C18 /* GoodMorningView.swift */; };
 		DCE084F22C211DBE00B43C18 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE084F12C211DBE00B43C18 /* Color.swift */; };
 /* End PBXBuildFile section */
@@ -83,6 +84,7 @@
 		DC95EE7B2C2BBDB800140C0A /* AutautGrotesk-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AutautGrotesk-Semibold.ttf"; sourceTree = "<group>"; };
 		DC95EE7C2C2BBDB800140C0A /* AutautGrotesk-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AutautGrotesk-Medium.ttf"; sourceTree = "<group>"; };
 		DC95EE7D2C2BBDB800140C0A /* AutautGrotesk-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AutautGrotesk-Black.ttf"; sourceTree = "<group>"; };
+		DC95EE842C2BD71700140C0A /* AnchorKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnchorKey.swift; sourceTree = "<group>"; };
 		DCE084EE2C211D9800B43C18 /* GoodMorningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodMorningView.swift; sourceTree = "<group>"; };
 		DCE084F12C211DBE00B43C18 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,6 +160,7 @@
 				DC7DCA582C275A7D005F6393 /* grand-canal.mp4 */,
 				DC6E43FA2C24FC4C00C1F5CE /* new-york.mp4 */,
 				DC95EE782C2BBDA700140C0A /* Fonts */,
+				DC95EE832C2BD70400140C0A /* Helpers */,
 				DCE084F02C211DB200B43C18 /* Colors */,
 				DC883C5F2C1FC35300BA0CFF /* Animation */,
 				DC883C582C1EA37900BA0CFF /* Components */,
@@ -245,6 +248,14 @@
 				DC95EE7B2C2BBDB800140C0A /* AutautGrotesk-Semibold.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		DC95EE832C2BD70400140C0A /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				DC95EE842C2BD71700140C0A /* AnchorKey.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		DCE084ED2C211D7E00B43C18 /* Dot */ = {
@@ -359,6 +370,7 @@
 				DC51B1CE2C2879D3007321BF /* BrushImage.swift in Sources */,
 				DC46BB9B2C28A7AC004D9D51 /* BrushVideo.swift in Sources */,
 				DC883C5C2C1EAF8700BA0CFF /* MonthDayText.swift in Sources */,
+				DC95EE852C2BD71700140C0A /* AnchorKey.swift in Sources */,
 				DC883C612C1FC36400BA0CFF /* InterpolateValue.swift in Sources */,
 				DC95EE5F2C2BB21700140C0A /* NotchAnimation.swift in Sources */,
 				DC6FD7AB2C1E2A7B008FB5FB /* RippleEffect.swift in Sources */,
