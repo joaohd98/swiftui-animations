@@ -45,6 +45,9 @@ struct ContentView: View {
                 NavigationLink(destination: BrushImageFloat()) {
                     Text("Brush image Float animation")
                 }
+                NavigationLink(destination: NotchAnimation()) {
+                    Text("Notch Animation")
+                }
             }
             .navigationBarHidden(true)
                         

@@ -37,6 +37,12 @@
 		DC883C5E2C1EB16B00BA0CFF /* BottomInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC883C5D2C1EB16B00BA0CFF /* BottomInput.swift */; };
 		DC883C612C1FC36400BA0CFF /* InterpolateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC883C602C1FC36400BA0CFF /* InterpolateValue.swift */; };
 		DC90C4862C291BF100AFDD06 /* VideoPlayerContainer in Frameworks */ = {isa = PBXBuildFile; productRef = DC90C4852C291BF100AFDD06 /* VideoPlayerContainer */; };
+		DC95EE5F2C2BB21700140C0A /* NotchAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC95EE5E2C2BB21700140C0A /* NotchAnimation.swift */; };
+		DC95EE7E2C2BBDB800140C0A /* AutautGrotesk-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC95EE792C2BBDB800140C0A /* AutautGrotesk-Regular.ttf */; };
+		DC95EE7F2C2BBDB800140C0A /* AutautGrotesk-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC95EE7A2C2BBDB800140C0A /* AutautGrotesk-Bold.ttf */; };
+		DC95EE802C2BBDB800140C0A /* AutautGrotesk-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC95EE7B2C2BBDB800140C0A /* AutautGrotesk-Semibold.ttf */; };
+		DC95EE812C2BBDB800140C0A /* AutautGrotesk-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC95EE7C2C2BBDB800140C0A /* AutautGrotesk-Medium.ttf */; };
+		DC95EE822C2BBDB800140C0A /* AutautGrotesk-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC95EE7D2C2BBDB800140C0A /* AutautGrotesk-Black.ttf */; };
 		DCE084EF2C211D9800B43C18 /* GoodMorningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE084EE2C211D9800B43C18 /* GoodMorningView.swift */; };
 		DCE084F22C211DBE00B43C18 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE084F12C211DBE00B43C18 /* Color.swift */; };
 /* End PBXBuildFile section */
@@ -70,6 +76,13 @@
 		DC883C5B2C1EAF8700BA0CFF /* MonthDayText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthDayText.swift; sourceTree = "<group>"; };
 		DC883C5D2C1EB16B00BA0CFF /* BottomInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomInput.swift; sourceTree = "<group>"; };
 		DC883C602C1FC36400BA0CFF /* InterpolateValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterpolateValue.swift; sourceTree = "<group>"; };
+		DC95EE5E2C2BB21700140C0A /* NotchAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotchAnimation.swift; sourceTree = "<group>"; };
+		DC95EE772C2BBA9900140C0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		DC95EE792C2BBDB800140C0A /* AutautGrotesk-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AutautGrotesk-Regular.ttf"; sourceTree = "<group>"; };
+		DC95EE7A2C2BBDB800140C0A /* AutautGrotesk-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AutautGrotesk-Bold.ttf"; sourceTree = "<group>"; };
+		DC95EE7B2C2BBDB800140C0A /* AutautGrotesk-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AutautGrotesk-Semibold.ttf"; sourceTree = "<group>"; };
+		DC95EE7C2C2BBDB800140C0A /* AutautGrotesk-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AutautGrotesk-Medium.ttf"; sourceTree = "<group>"; };
+		DC95EE7D2C2BBDB800140C0A /* AutautGrotesk-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AutautGrotesk-Black.ttf"; sourceTree = "<group>"; };
 		DCE084EE2C211D9800B43C18 /* GoodMorningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodMorningView.swift; sourceTree = "<group>"; };
 		DCE084F12C211DBE00B43C18 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -141,8 +154,10 @@
 		DC6FD7882C1D3D68008FB5FB /* animations-swift */ = {
 			isa = PBXGroup;
 			children = (
+				DC95EE772C2BBA9900140C0A /* Info.plist */,
 				DC7DCA582C275A7D005F6393 /* grand-canal.mp4 */,
 				DC6E43FA2C24FC4C00C1F5CE /* new-york.mp4 */,
+				DC95EE782C2BBDA700140C0A /* Fonts */,
 				DCE084F02C211DB200B43C18 /* Colors */,
 				DC883C5F2C1FC35300BA0CFF /* Animation */,
 				DC883C582C1EA37900BA0CFF /* Components */,
@@ -167,6 +182,7 @@
 		DC6FD7972C1DEB56008FB5FB /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				DC95EE5D2C2BB20600140C0A /* NotchAnimation */,
 				DC59F4A72C2A8AB900004360 /* BrushImageFloat */,
 				DC46BB992C28A764004D9D51 /* BrushVideo */,
 				DC51B1CC2C2879B9007321BF /* BrushImage */,
@@ -209,6 +225,26 @@
 				DC883C602C1FC36400BA0CFF /* InterpolateValue.swift */,
 			);
 			path = Animation;
+			sourceTree = "<group>";
+		};
+		DC95EE5D2C2BB20600140C0A /* NotchAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				DC95EE5E2C2BB21700140C0A /* NotchAnimation.swift */,
+			);
+			path = NotchAnimation;
+			sourceTree = "<group>";
+		};
+		DC95EE782C2BBDA700140C0A /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				DC95EE7D2C2BBDB800140C0A /* AutautGrotesk-Black.ttf */,
+				DC95EE7A2C2BBDB800140C0A /* AutautGrotesk-Bold.ttf */,
+				DC95EE7C2C2BBDB800140C0A /* AutautGrotesk-Medium.ttf */,
+				DC95EE792C2BBDB800140C0A /* AutautGrotesk-Regular.ttf */,
+				DC95EE7B2C2BBDB800140C0A /* AutautGrotesk-Semibold.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		DCE084ED2C211D7E00B43C18 /* Dot */ = {
@@ -297,7 +333,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC6FD7912C1D3D69008FB5FB /* Preview Assets.xcassets in Resources */,
+				DC95EE7E2C2BBDB800140C0A /* AutautGrotesk-Regular.ttf in Resources */,
+				DC95EE802C2BBDB800140C0A /* AutautGrotesk-Semibold.ttf in Resources */,
 				DC6E43FB2C24FC4C00C1F5CE /* new-york.mp4 in Resources */,
+				DC95EE7F2C2BBDB800140C0A /* AutautGrotesk-Bold.ttf in Resources */,
+				DC95EE812C2BBDB800140C0A /* AutautGrotesk-Medium.ttf in Resources */,
+				DC95EE822C2BBDB800140C0A /* AutautGrotesk-Black.ttf in Resources */,
 				DC7DCA592C275A7D005F6393 /* grand-canal.mp4 in Resources */,
 				DC6FD78E2C1D3D69008FB5FB /* Assets.xcassets in Resources */,
 			);
@@ -319,6 +360,7 @@
 				DC46BB9B2C28A7AC004D9D51 /* BrushVideo.swift in Sources */,
 				DC883C5C2C1EAF8700BA0CFF /* MonthDayText.swift in Sources */,
 				DC883C612C1FC36400BA0CFF /* InterpolateValue.swift in Sources */,
+				DC95EE5F2C2BB21700140C0A /* NotchAnimation.swift in Sources */,
 				DC6FD7AB2C1E2A7B008FB5FB /* RippleEffect.swift in Sources */,
 				DC6FD7A92C1E21EF008FB5FB /* CustomTransition.swift in Sources */,
 				DCE084EF2C211D9800B43C18 /* GoodMorningView.swift in Sources */,
@@ -471,6 +513,7 @@
 				DEVELOPMENT_TEAM = R8RR6LZ5DA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "animations-swift/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -500,6 +543,7 @@
 				DEVELOPMENT_TEAM = R8RR6LZ5DA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "animations-swift/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
