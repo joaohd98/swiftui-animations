@@ -8,21 +8,30 @@
 import SwiftUI
 import AVKit
 
-private let pictures: [UIImage] = [
-    .picture0,
-    .picture1,
-    .picture2,
-    .picture3,
-    .picture4,
-    .picture5,
-    .picture6,
-    .picture0,
-    .picture1,
-    .picture2,
-    .picture3,
-    .picture4,
-    .picture5,
-    .picture6
+private struct Picture {
+    var image: UIImage;
+    var name: String;
+    var location: String;
+    var type: String;
+}
+
+private let pictures: [Picture] = [
+    .init(image: .picture0, name: "Toyokawa House", location: "Toyokawa, Japan", type: "Book"),
+    .init(image: .picture1, name: "Conran Shop", location: "Tokyo, Japan", type: "Book"),
+    .init(image: .picture2, name: "Bright House", location: "Sintra, Portugal", type: "Book"),
+    .init(image: .picture3, name: "Ligre Youn", location: "Near you", type: "Book"),
+    .init(image: .picture4, name: "Pan Cabins", location: "Espen Surnevik", type: "Book"),
+    .init(image: .picture5, name: "Nike Shoe", location: "Nike, Men’s shoe", type: "Shop"),
+    .init(image: .picture6, name: "Dream Space", location: "Montreal, Canada", type: "Book"),
+    .init(image: .picture7, name: "Trunk Hotel", location: "Tokyo, Japan", type: "Book"),
+    .init(image: .picture0, name: "Toyokawa House", location: "Toyokawa, Japan", type: "Book"),
+    .init(image: .picture1, name: "Conran Shop", location: "Tokyo, Japan", type: "Book"),
+    .init(image: .picture2, name: "Bright House", location: "Sintra, Portugal", type: "Book"),
+    .init(image: .picture3, name: "Ligre Youn", location: "Near you", type: "Book"),
+    .init(image: .picture4, name: "Pan Cabins", location: "Espen Surnevik", type: "Book"),
+    .init(image: .picture5, name: "Nike Shoe", location: "Nike, Men’s shoe", type: "Shop"),
+    .init(image: .picture6, name: "Dream Space", location: "Montreal, Canada", type: "Book"),
+    .init(image: .picture7, name: "Trunk Hotel", location: "Tokyo, Japan", type: "Book")
 ]
 
 struct BrushNotchAnimation: View {
@@ -96,17 +105,18 @@ struct BrushNotchAnimation: View {
                     self.isDragging = false
  
                     if self.dragNextProgress == 1 {
+                        self.isTextVisible = false
                         self.current += 1
                     }
                     
                     if self.dragPrevProgress == 1 {
+                        self.isTextVisible = false
                         self.current -= 1
                     }
                     
                     self.initialPosition = .zero
                     self.dragNextProgress = .zero
                     self.dragPrevProgress = .zero
-                    self.isTextVisible = false
                 }
             }
     }
@@ -126,7 +136,7 @@ struct BrushNotchAnimation: View {
                     if hasPrev {
                         let previous = pictures[current - 1]
 
-                        Image(uiImage: previous)
+                        Image(uiImage: previous.image)
                             .resizable()
                             .frame(width: proxy.size.width, height: proxy.size.height + safeArea.bottom + safeArea.top)
                             .scaleEffect(1.1)
@@ -134,145 +144,144 @@ struct BrushNotchAnimation: View {
                     
                     let dragPrev = 1 - dragPrevProgress
 
-                    Image(uiImage: pictures[current])
-                        .resizable()
-                        .frame(width: proxy.size.width, height: proxy.size.height + safeArea.bottom + safeArea.top)
-                        .scaleEffect(1.1)
-                        .modifier(BrushImageModifierEffect(origin: initialPosition, dragProgress: dragNextProgress))
-                        .opacity(dragPrev)
-                        .overlay {
-                            VStack {
-                                Circle()
-                                    .fill(.white.opacity(0.2))
-                                    .frame(width: 32, height: 32)
-                                    .overlay {
-                                        Image(uiImage: .iaIcon)
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fit)
-                                            .frame(width: 16, height: 16)
-                                    }
-                                    .anchorPreference(key: AnchorKey.self, value: .bounds, transform: {
-                                        return ["header": $0]
-                                    })
-                                    .padding(.top, safeArea.top + 12)
-                                    .padding(.top, enterAnimation ? 0 : hasDynamicIsland ? -56 : -60)
-
-
-                                Spacer()
-                                
-                                Text("Trunk Hotel")
-                                    .font(.custom("AutautGrotesk-Bold", size: 28))
-                                    .lineSpacing(-0.28)
-                                    .foregroundStyle(.white)
-                                    .padding(.bottom, 8)
-                                
-                                Text("Tokyo, Japan")
-                                    .font(.custom("AutautGrotesk-Medium", size: 14))
-                                    .lineSpacing(-0.1)
-                                    .foregroundStyle(.white)
-                                    .padding(.bottom, 10)
-
-
-                                HStack(spacing: 28) {
-                                    Button {
-                                       
-                                        
-                                    } label: {
-                                        HStack(spacing: 12) {
-                                            Image(uiImage: .plus)
-                                                .resizable()
-                                                .frame(width: 10, height: 10)
-                                    
-                                            Text("Book")
-                                                .foregroundStyle(.black)
-                                                .font(.custom("AutautGrotesk-Semibold", size: 14))
-                                                .lineSpacing(-0.1)
-
-                                        }
-                                        .frame(width: 94, height: 40)
-                                        .background(.white)
-                                        .clipShape(RoundedRectangle(cornerRadius: 8))
-                                    }
-                                 
-                                    
-                                    Button {
-                                        print("click three dots")
-                                    } label: {
-                                        Image(uiImage: .threeDots)
-                                            .resizable()
-                                            .frame(width: 20, height: 20)
-                                            .background {
-                                                Color.black.opacity(0.2)
-                                                    .frame(width: 40, height: 40)
-                                                    .clipShape(RoundedRectangle(cornerRadius: 8))
-                                            }
-                                    }
-                                  
+                    ZStack {
+                        Image(uiImage: pictures[current].image)
+                            .resizable()
+                            .frame(width: proxy.size.width, height: proxy.size.height + safeArea.bottom + safeArea.top)
+                            .scaleEffect(1.1)
+                            .opacity(dragPrev)
+                        
+                        VStack {
+                            Circle()
+                                .fill(.white.opacity(0.2))
+                                .frame(width: 32, height: 32)
+                                .overlay {
+                                    Image(uiImage: .iaIcon)
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: 16, height: 16)
                                 }
-                                .padding(.bottom, 50)
+                                .anchorPreference(key: AnchorKey.self, value: .bounds, transform: {
+                                    return ["header": $0]
+                                })
+                                .padding(.top, safeArea.top + 12)
+                                .padding(.top, enterAnimation ? 0 : hasDynamicIsland ? -56 : -60)
+
+                            Spacer()
+                            
+                            Text(pictures[current].name)
+                                .font(.custom("AutautGrotesk-Bold", size: 28))
+                                .lineSpacing(-0.28)
+                                .foregroundStyle(.white)
+                                .padding(.bottom, 8)
+                            
+                            Text(pictures[current].location)
+                                .font(.custom("AutautGrotesk-Medium", size: 14))
+                                .lineSpacing(-0.1)
+                                .foregroundStyle(.white)
+                                .padding(.bottom, 10)
+
+
+                            HStack(spacing: 28) {
+                                Button {
+                                   
+                                    
+                                } label: {
+                                    HStack(spacing: 12) {
+                                        Image(uiImage: .plus)
+                                            .resizable()
+                                            .frame(width: 10, height: 10)
+                                
+                                        Text(pictures[current].type)
+                                            .foregroundStyle(.black)
+                                            .font(.custom("AutautGrotesk-Semibold", size: 14))
+                                            .lineSpacing(-0.1)
+
+                                    }
+                                    .frame(width: 94, height: 40)
+                                    .background(.white)
+                                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                                }
+                             
+                                
+                                Button {
+                                    print("click three dots")
+                                } label: {
+                                    Image(uiImage: .threeDots)
+                                        .resizable()
+                                        .frame(width: 20, height: 20)
+                                        .background {
+                                            Color.black.opacity(0.2)
+                                                .frame(width: 40, height: 40)
+                                                .clipShape(RoundedRectangle(cornerRadius: 8))
+                                        }
+                                }
+                              
                             }
-                            .frame(maxWidth: .infinity)
-                            .overlayPreferenceValue(AnchorKey.self, { pref in
-                                VStack {
-                                    GeometryReader { proxy in
-                                        if let anchor = pref["header"] {
-                                            let frameRect = proxy[anchor]
-                                            Canvas { out, size in
-                                                out.addFilter(.alphaThreshold(min: 0.5))
-                                                out.addFilter(.blur(radius: 12))
-                    
-                                                out.drawLayer { ctx in
-                                                    if let circle = out.resolveSymbol(id: 0) {
-                                                        ctx.draw(circle, in: CGRect(
-                                                            x: frameRect.minX - 3.5,
-                                                            y: frameRect.minY - 3.5,
-                                                            width: frameRect.width + 6.5,
-                                                            height: frameRect.height + 6.5
-                                                        ))
-                                                    }
-                                                    
-                                                    if let dynamicIsland = out.resolveSymbol(id: 1) {
-                                                        let rect = CGRect(
-                                                            x: (size.width - 120) / 2,
-                                                            y: hasDynamicIsland ? 12 : -10,
-                                                            width: 120,
-                                                            height: 37
-                                                        )
-                    
-                                                       ctx.draw(dynamicIsland, in: rect)
-                                                    }
+                            .padding(.bottom, 50)
+                        }
+                        .frame(maxWidth: .infinity)
+                        .overlayPreferenceValue(AnchorKey.self, { pref in
+                            VStack {
+                                GeometryReader { proxy in
+                                    if let anchor = pref["header"] {
+                                        let frameRect = proxy[anchor]
+                                        Canvas { out, size in
+                                            out.addFilter(.alphaThreshold(min: 0.5))
+                                            out.addFilter(.blur(radius: 12))
+                
+                                            out.drawLayer { ctx in
+                                                if let circle = out.resolveSymbol(id: 0) {
+                                                    ctx.draw(circle, in: CGRect(
+                                                        x: frameRect.minX - 3.5,
+                                                        y: frameRect.minY - 3.5,
+                                                        width: frameRect.width + 6.5,
+                                                        height: frameRect.height + 6.5
+                                                    ))
                                                 }
-                                            } symbols: {
-                                                Circle()
-                                                    .tag(0)
-                                                    .id(0)
-                                                    .transition(.opacity)
-                    
-                                                RoundedRectangle(cornerRadius: 18)
-                                                    .tag(1)
-                                                    .id(1)
+                                                
+                                                if let dynamicIsland = out.resolveSymbol(id: 1) {
+                                                    let rect = CGRect(
+                                                        x: (size.width - 120) / 2,
+                                                        y: hasDynamicIsland ? 12 : -10,
+                                                        width: 120,
+                                                        height: 37
+                                                    )
+                
+                                                   ctx.draw(dynamicIsland, in: rect)
+                                                }
                                             }
+                                        } symbols: {
+                                            Circle()
+                                                .tag(0)
+                                                .id(0)
+                                                .transition(.opacity)
+                
+                                            RoundedRectangle(cornerRadius: 18)
+                                                .tag(1)
+                                                .id(1)
                                         }
                                     }
-                                    .allowsHitTesting(false)
                                 }
-                                .opacity(visibleAnimation ? 0 : 1)
-                            })
-                            .blur(radius: interpolateValue(dragNextProgress, minValue: 0, maxValue: 30))
-                            .opacity(isTextVisible ? 1 : 0)
-                            .opacity(1 - interpolateValue(dragNextProgress, minValue: 0, maxValue: 1))
-                            .onChange(of: self.current) {
-                                withAnimation {
-                                    isTextVisible = true
-                                }
+                                .allowsHitTesting(false)
+                            }
+                            .opacity(visibleAnimation ? 0 : 1)
+                        })
+                        .opacity(isTextVisible ? 1 : 0)
+                        .opacity(1 - interpolateValue(dragNextProgress, minValue: 0, maxValue: 1))
+                        .onChange(of: self.current) {
+                            withAnimation {
+                                isTextVisible = true
                             }
                         }
-                    
+                    }
+                    .blur(radius: interpolateValue(dragNextProgress * 0.75, minValue: 0, maxValue: 20))
+                    .modifier(BrushImageModifierEffect(origin: initialPosition, dragProgress: dragNextProgress))
                     
                     if hasNext {
                         let next = pictures[current + 1]
                         
-                        Image(uiImage: next)
+                        Image(uiImage: next.image)
                             .resizable()
                             .frame(width: proxy.size.width, height: proxy.size.height + safeArea.bottom + safeArea.top)
                             .scaleEffect(1.1)

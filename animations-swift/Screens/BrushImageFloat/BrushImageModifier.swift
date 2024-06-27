@@ -17,6 +17,10 @@ struct BrushImageModifier: ViewModifier {
     var decay: Double = 8
     var speed: Double = 1200
 
+    var maxSampleOffset: CGSize {
+       CGSize(width: amplitude, height: amplitude)
+    }
+    
     func body(content: Content) -> some View {
         let shader = ShaderLibrary.Brush(
             .float2(origin),
@@ -28,7 +32,11 @@ struct BrushImageModifier: ViewModifier {
         )
         
         content.visualEffect { view, _ in
-            view.layerEffect(shader, maxSampleOffset: .zero)
+            view.layerEffect(
+                shader,
+                maxSampleOffset: maxSampleOffset,
+                isEnabled: 0 < elapsedTime && elapsedTime < duration
+            )
         }
     }
 }
@@ -53,4 +61,8 @@ struct BrushImageModifierEffect: ViewModifier {
             LinearKeyframe(duration, duration: duration)
         }
     }
+}
+
+#Preview {
+    BrushNotchAnimation()
 }

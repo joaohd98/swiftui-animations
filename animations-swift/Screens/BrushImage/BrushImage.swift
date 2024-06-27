@@ -16,13 +16,7 @@ private let pictures: [UIImage] = [
     .picture4,
     .picture5,
     .picture6,
-    .picture0,
-    .picture1,
-    .picture2,
-    .picture3,
-    .picture4,
-    .picture5,
-    .picture6
+    .picture7
 ]
 
 struct BrushImage: View {
