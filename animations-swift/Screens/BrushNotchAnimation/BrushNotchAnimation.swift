@@ -90,11 +90,11 @@ struct BrushNotchAnimation: View {
                 }
                 
                 if hasPrev && values.translation.height < 0 {
-                    self.dragPrevProgress = mapRange(
-                        inMin: 0, inMax: height * 0.9, outMin: 0, outMax: 1, valueToMap: abs(values.translation.height)
-                    )
-
-                    self.dragNextProgress = 0
+//                    self.dragPrevProgress = mapRange(
+//                        inMin: 0, inMax: height * 0.9, outMin: 0, outMax: 1, valueToMap: abs(values.translation.height)
+//                    )
+//
+//                    self.dragNextProgress = 0
                 }
             }
             .onEnded { values in
@@ -138,8 +138,13 @@ struct BrushNotchAnimation: View {
 
                         Image(uiImage: previous.image)
                             .resizable()
+                            .scaledToFill()
+                            .frame(
+                                width: proxy.size.width, height: proxy.size.height + safeArea.bottom + safeArea.top
+                            )
+                            .scaleEffect(1.05)
                             .frame(width: proxy.size.width, height: proxy.size.height + safeArea.bottom + safeArea.top)
-                            .scaleEffect(1.1)
+                            .scaleEffect(1.05)
                     }
                     
                     let dragPrev = 1 - dragPrevProgress
@@ -147,8 +152,11 @@ struct BrushNotchAnimation: View {
                     ZStack {
                         Image(uiImage: pictures[current].image)
                             .resizable()
-                            .frame(width: proxy.size.width, height: proxy.size.height + safeArea.bottom + safeArea.top)
-                            .scaleEffect(1.1)
+                            .scaledToFill()
+                            .frame(
+                                width: proxy.size.width, height: proxy.size.height + safeArea.bottom + safeArea.top
+                            )
+                            .scaleEffect(1.05)
                             .opacity(dragPrev)
                         
                         VStack {
@@ -283,8 +291,11 @@ struct BrushNotchAnimation: View {
                         
                         Image(uiImage: next.image)
                             .resizable()
-                            .frame(width: proxy.size.width, height: proxy.size.height + safeArea.bottom + safeArea.top)
-                            .scaleEffect(1.1)
+                            .scaledToFill()
+                            .frame(
+                                width: proxy.size.width, height: proxy.size.height + safeArea.bottom + safeArea.top
+                            )
+                            .scaleEffect(1.05)
                             .mask {
                                 let maxWidth = interpolateValue(
                                     dragNextProgress, minValue: 50, maxValue: proxy.size.width * multiply
@@ -313,13 +324,15 @@ struct BrushNotchAnimation: View {
             }
             .ignoresSafeArea()
             .onAppear {
-                withAnimation(.spring(duration: 0.8, bounce: 0.5)) {
-                    enterAnimation = true
-                }
-                
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                    withAnimation(.linear(duration: 0.2)) {
-                        visibleAnimation = true
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
+                    withAnimation(.spring(duration: 0.8, bounce: 0.5)) {
+                        enterAnimation = true
+                    }
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                        withAnimation(.linear(duration: 0.2)) {
+                            visibleAnimation = true
+                        }
                     }
                 }
             }
