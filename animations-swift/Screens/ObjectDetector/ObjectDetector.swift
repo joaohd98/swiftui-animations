@@ -31,6 +31,8 @@ private let pictures: [Picture] = [
 
 struct ObjectDetector: View {
  
+    @StateObject private var viewModel = ImageAnalysisViewModel()
+
     @State private var isTextVisible = true
     @State private var current = 1
 
@@ -55,7 +57,6 @@ struct ObjectDetector: View {
     }
 
     func drag(width: CGFloat, height: CGFloat) -> some Gesture {
-        let hasPrev = current > 0
         let hasNext = current < pictures.count - 1
         
         return DragGesture()
@@ -98,7 +99,6 @@ struct ObjectDetector: View {
     var body: some View {
         GeometryReader { proxy in
             let safeArea = proxy.safeAreaInsets
-            let hasDynamicIsland = safeArea.top > 51
 
             Group {
                 ZStack {
@@ -113,22 +113,26 @@ struct ObjectDetector: View {
                         Image(uiImage: previous.image)
                             .resizable()
                             .scaledToFill()
-                            .frame(
-                                width: proxy.size.width, height: proxy.size.height + safeArea.bottom + safeArea.top
-                            )
-                            .scaleEffect(1.05)
                             .frame(width: proxy.size.width, height: proxy.size.height + safeArea.bottom + safeArea.top)
                             .scaleEffect(1.05)
                     }
                     
                     ZStack {
-                        Image(uiImage: pictures[current].image)
-                            .resizable()
-                            .scaledToFill()
-                            .frame(
-                                width: proxy.size.width, height: proxy.size.height + safeArea.bottom + safeArea.top
-                            )
+                        ObjectPickableImageView(uiImage: pictures[current].image)
+                            .frame(width: proxy.size.width, height: proxy.size.height + safeArea.bottom + safeArea.top)
                             .scaleEffect(1.05)
+                            .environmentObject(viewModel)
+                            .onAppear {
+                                Task { @MainActor in
+                                    try? await self.viewModel.analyzeImage(pictures[current].image)
+                                }
+                            }
+                            .onChange(of: current, { _, newValue in
+                                Task { @MainActor in
+                                    try? await self.viewModel.analyzeImage(pictures[current].image)
+                                }
+                            })
+                         
                         
                         VStack {
                             Circle()
@@ -162,8 +166,7 @@ struct ObjectDetector: View {
 
                             HStack(spacing: 28) {
                                 Button {
-                                   
-                                    
+                                    print("click book")
                                 } label: {
                                     HStack(spacing: 12) {
                                         Image(uiImage: .plus)
@@ -208,7 +211,7 @@ struct ObjectDetector: View {
                         }
                     }
                     .blur(radius: interpolateValue(dragNextProgress * 0.75, minValue: 0, maxValue: 20))
-                    .modifier(BrushImageModifierEffect(origin: initialPosition, dragProgress: dragNextProgress))
+//                    .modifier(BrushImageModifierEffect(origin: initialPosition, dragProgress: dragNextProgress))
                     
                     if hasNext {
                         let next = pictures[current + 1]
@@ -242,6 +245,15 @@ struct ObjectDetector: View {
                                     .offset(x: -offsetX, y: -offsetY)
 
                             }
+                    }
+                }
+                .onTapGesture { tappedLocation in
+                    Task { @MainActor in
+                        if let tappedSubject = await self.viewModel.interaction.subject(at: tappedLocation) {
+                            print("tapped subject")
+                        } else {
+                            print("none")
+                        }
                     }
                 }
                 .gesture(drag(width: proxy.size.width, height: proxy.size.height))
