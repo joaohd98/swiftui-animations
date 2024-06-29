@@ -8,7 +8,7 @@
 import SwiftUI
 import AVKit
 
-private struct Picture {
+struct Picture {
     var image: UIImage;
     var name: String;
     var location: String;

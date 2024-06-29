@@ -45,6 +45,9 @@
 		DC95EE822C2BBDB800140C0A /* AutautGrotesk-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC95EE7D2C2BBDB800140C0A /* AutautGrotesk-Black.ttf */; };
 		DC95EE852C2BD71700140C0A /* AnchorKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC95EE842C2BD71700140C0A /* AnchorKey.swift */; };
 		DCCD4FC72C2CB74B00F051D8 /* BrushNotchAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCD4FC62C2CB74B00F051D8 /* BrushNotchAnimation.swift */; };
+		DCCE3ABD2C2E608200D2EA0A /* ObjectDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCE3ABC2C2E608200D2EA0A /* ObjectDetector.swift */; };
+		DCCE3AC02C2E60C000D2EA0A /* ImageAnalysisViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCE3ABF2C2E60C000D2EA0A /* ImageAnalysisViewModel.swift */; };
+		DCCE3AC22C2E618F00D2EA0A /* ObjectPickableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCE3AC12C2E618F00D2EA0A /* ObjectPickableImageView.swift */; };
 		DCE084EF2C211D9800B43C18 /* GoodMorningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE084EE2C211D9800B43C18 /* GoodMorningView.swift */; };
 		DCE084F22C211DBE00B43C18 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE084F12C211DBE00B43C18 /* Color.swift */; };
 /* End PBXBuildFile section */
@@ -87,6 +90,9 @@
 		DC95EE7D2C2BBDB800140C0A /* AutautGrotesk-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AutautGrotesk-Black.ttf"; sourceTree = "<group>"; };
 		DC95EE842C2BD71700140C0A /* AnchorKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnchorKey.swift; sourceTree = "<group>"; };
 		DCCD4FC62C2CB74B00F051D8 /* BrushNotchAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrushNotchAnimation.swift; sourceTree = "<group>"; };
+		DCCE3ABC2C2E608200D2EA0A /* ObjectDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectDetector.swift; sourceTree = "<group>"; };
+		DCCE3ABF2C2E60C000D2EA0A /* ImageAnalysisViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnalysisViewModel.swift; sourceTree = "<group>"; };
+		DCCE3AC12C2E618F00D2EA0A /* ObjectPickableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectPickableImageView.swift; sourceTree = "<group>"; };
 		DCE084EE2C211D9800B43C18 /* GoodMorningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodMorningView.swift; sourceTree = "<group>"; };
 		DCE084F12C211DBE00B43C18 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -166,6 +172,7 @@
 				DCE084F02C211DB200B43C18 /* Colors */,
 				DC883C5F2C1FC35300BA0CFF /* Animation */,
 				DC883C582C1EA37900BA0CFF /* Components */,
+				DCCE3ABE2C2E60AD00D2EA0A /* View Model */,
 				DC6FD79A2C1DEE8C008FB5FB /* Mock */,
 				DC6FD7972C1DEB56008FB5FB /* Screens */,
 				DC6FD7892C1D3D68008FB5FB /* SwiftApp.swift */,
@@ -187,6 +194,7 @@
 		DC6FD7972C1DEB56008FB5FB /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				DCCE3ABB2C2E606700D2EA0A /* ObjectDetector */,
 				DCCD4FC52C2CB73300F051D8 /* BrushNotchAnimation */,
 				DC95EE5D2C2BB20600140C0A /* NotchAnimation */,
 				DC59F4A72C2A8AB900004360 /* BrushImageFloat */,
@@ -221,6 +229,7 @@
 				DC883C5B2C1EAF8700BA0CFF /* MonthDayText.swift */,
 				DC883C5D2C1EB16B00BA0CFF /* BottomInput.swift */,
 				DC7DCA552C2753D5005F6393 /* VideoLoop.swift */,
+				DCCE3AC12C2E618F00D2EA0A /* ObjectPickableImageView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -267,6 +276,22 @@
 				DCCD4FC62C2CB74B00F051D8 /* BrushNotchAnimation.swift */,
 			);
 			path = BrushNotchAnimation;
+			sourceTree = "<group>";
+		};
+		DCCE3ABB2C2E606700D2EA0A /* ObjectDetector */ = {
+			isa = PBXGroup;
+			children = (
+				DCCE3ABC2C2E608200D2EA0A /* ObjectDetector.swift */,
+			);
+			path = ObjectDetector;
+			sourceTree = "<group>";
+		};
+		DCCE3ABE2C2E60AD00D2EA0A /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				DCCE3ABF2C2E60C000D2EA0A /* ImageAnalysisViewModel.swift */,
+			);
+			path = "View Model";
 			sourceTree = "<group>";
 		};
 		DCE084ED2C211D7E00B43C18 /* Dot */ = {
@@ -374,17 +399,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC6FD7A72C1E19B9008FB5FB /* MeshGradient.swift in Sources */,
+				DCCE3ABD2C2E608200D2EA0A /* ObjectDetector.swift in Sources */,
 				DC6FD79C2C1DEEA4008FB5FB /* photos.swift in Sources */,
 				DC46BB982C28A0BE004D9D51 /* BrushImageModifier.swift in Sources */,
 				DC6FD79E2C1E0DB3008FB5FB /* ParallaxCarousel.swift in Sources */,
 				DC6FD7A02C1E11BF008FB5FB /* ScrollViewWithVisualEffect.swift in Sources */,
 				DC51B1CE2C2879D3007321BF /* BrushImage.swift in Sources */,
 				DC46BB9B2C28A7AC004D9D51 /* BrushVideo.swift in Sources */,
+				DCCE3AC02C2E60C000D2EA0A /* ImageAnalysisViewModel.swift in Sources */,
 				DC883C5C2C1EAF8700BA0CFF /* MonthDayText.swift in Sources */,
 				DC95EE852C2BD71700140C0A /* AnchorKey.swift in Sources */,
 				DC883C612C1FC36400BA0CFF /* InterpolateValue.swift in Sources */,
 				DC95EE5F2C2BB21700140C0A /* NotchAnimation.swift in Sources */,
 				DC6FD7AB2C1E2A7B008FB5FB /* RippleEffect.swift in Sources */,
+				DCCE3AC22C2E618F00D2EA0A /* ObjectPickableImageView.swift in Sources */,
 				DC6FD7A92C1E21EF008FB5FB /* CustomTransition.swift in Sources */,
 				DCE084EF2C211D9800B43C18 /* GoodMorningView.swift in Sources */,
 				DC6FD78C2C1D3D68008FB5FB /* ContentView.swift in Sources */,
