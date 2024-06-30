@@ -10,6 +10,26 @@ import SwiftUI
 import PhotosUI
 import VisionKit
 
+private struct Picture {
+    var image: UIImage;
+    var name: String;
+    var location: String;
+    var type: String;
+}
+
+struct Bound: Identifiable {
+    var id: String
+    var tapped: CGPoint
+    var object: CGRect
+    
+    init(tapped: CGPoint, object: CGRect) {
+        self.id = "\(object.width) \(object.height) \(object.midX) \(object.midY)"
+        self.tapped = tapped
+        self.object = object
+    }
+}
+
+
 private let pictures: [Picture] = [
     .init(image: .picture0, name: "Toyokawa House", location: "Toyokawa, Japan", type: "Book"),
     .init(image: .picture1, name: "Conran Shop", location: "Tokyo, Japan", type: "Book"),
@@ -32,6 +52,7 @@ private let pictures: [Picture] = [
 struct ObjectDetector: View {
  
     @StateObject private var viewModel = ImageAnalysisViewModel()
+    @State private var arrBounds: [Bound] = []
 
     @State private var isTextVisible = true
     @State private var current = 1
@@ -88,6 +109,7 @@ struct ObjectDetector: View {
                     if self.dragNextProgress == 1 {
                         self.isTextVisible = false
                         self.current += 1
+                        self.arrBounds = []
                     }
                     
                     self.initialPosition = .zero
@@ -118,6 +140,7 @@ struct ObjectDetector: View {
                     }
                     
                     ZStack {
+                        
                         ObjectPickableImageView(uiImage: pictures[current].image)
                             .frame(width: proxy.size.width, height: proxy.size.height + safeArea.bottom + safeArea.top)
                             .scaleEffect(1.05)
@@ -132,86 +155,104 @@ struct ObjectDetector: View {
                                     try? await self.viewModel.analyzeImage(pictures[current].image)
                                 }
                             })
-                         
-                        
-                        VStack {
-                            Circle()
-                                .fill(.white.opacity(0.2))
-                                .frame(width: 32, height: 32)
+                            .opacity(0)
+
+                        ZStack {
+                            Image(uiImage: pictures[current].image)
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: proxy.size.width, height: proxy.size.height + safeArea.bottom + safeArea.top)
+                                .scaleEffect(1.05)
                                 .overlay {
-                                    Image(uiImage: .iaIcon)
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .frame(width: 16, height: 16)
-                                }
-                                .anchorPreference(key: AnchorKey.self, value: .bounds, transform: {
-                                    return ["header": $0]
-                                })
-                                .padding(.top, safeArea.top + 12)
-
-                            Spacer()
-                            
-                            Text(pictures[current].name)
-                                .font(.custom("AutautGrotesk-Bold", size: 28))
-                                .lineSpacing(-0.28)
-                                .foregroundStyle(.white)
-                                .padding(.bottom, 8)
-                            
-                            Text(pictures[current].location)
-                                .font(.custom("AutautGrotesk-Medium", size: 14))
-                                .lineSpacing(-0.1)
-                                .foregroundStyle(.white)
-                                .padding(.bottom, 10)
-
-
-                            HStack(spacing: 28) {
-                                Button {
-                                    print("click book")
-                                } label: {
-                                    HStack(spacing: 12) {
-                                        Image(uiImage: .plus)
-                                            .resizable()
-                                            .frame(width: 10, height: 10)
-                                
-                                        Text(pictures[current].type)
-                                            .foregroundStyle(.black)
-                                            .font(.custom("AutautGrotesk-Semibold", size: 14))
-                                            .lineSpacing(-0.1)
-
+                                    ForEach(arrBounds) { bound in
+                                        Circle()
+                                            .fill(.white)
+                                            .frame(width: 12, height: 12)
+                                            .position(.init(x: bound.tapped.x, y: bound.tapped.y))
                                     }
-                                    .frame(width: 94, height: 40)
-                                    .background(.white)
-                                    .clipShape(RoundedRectangle(cornerRadius: 8))
                                 }
-                             
+
+                            VStack {
+                                Circle()
+                                    .fill(.white.opacity(0.2))
+                                    .frame(width: 32, height: 32)
+                                    .overlay {
+                                        Image(uiImage: .iaIcon)
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                            .frame(width: 16, height: 16)
+                                    }
+                                    .anchorPreference(key: AnchorKey.self, value: .bounds, transform: {
+                                        return ["header": $0]
+                                    })
+                                    .padding(.top, safeArea.top + 12)
+
+                                Spacer()
                                 
-                                Button {
-                                    print("click three dots")
-                                } label: {
-                                    Image(uiImage: .threeDots)
-                                        .resizable()
-                                        .frame(width: 20, height: 20)
-                                        .background {
-                                            Color.black.opacity(0.2)
-                                                .frame(width: 40, height: 40)
-                                                .clipShape(RoundedRectangle(cornerRadius: 8))
+                                Text(pictures[current].name)
+                                    .font(.custom("AutautGrotesk-Bold", size: 28))
+                                    .lineSpacing(-0.28)
+                                    .foregroundStyle(.white)
+                                    .padding(.bottom, 8)
+                                
+                                Text(pictures[current].location)
+                                    .font(.custom("AutautGrotesk-Medium", size: 14))
+                                    .lineSpacing(-0.1)
+                                    .foregroundStyle(.white)
+                                    .padding(.bottom, 10)
+
+
+                                HStack(spacing: 28) {
+                                    Button {
+                                        print("click book")
+                                    } label: {
+                                        HStack(spacing: 12) {
+                                            Image(uiImage: .plus)
+                                                .resizable()
+                                                .frame(width: 10, height: 10)
+
+                                            Text(pictures[current].type)
+                                                .foregroundStyle(.black)
+                                                .font(.custom("AutautGrotesk-Semibold", size: 14))
+                                                .lineSpacing(-0.1)
+
                                         }
+                                        .frame(width: 94, height: 40)
+                                        .background(.white)
+                                        .clipShape(RoundedRectangle(cornerRadius: 8))
+                                    }
+
+
+                                    Button {
+                                        print("click three dots")
+                                    } label: {
+                                        Image(uiImage: .threeDots)
+                                            .resizable()
+                                            .frame(width: 20, height: 20)
+                                            .background {
+                                                Color.black.opacity(0.2)
+                                                    .frame(width: 40, height: 40)
+                                                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                                            }
+                                    }
+
                                 }
-                              
+                                .padding(.bottom, 50)
                             }
-                            .padding(.bottom, 50)
-                        }
-                        .frame(maxWidth: .infinity)
-                        .opacity(isTextVisible ? 1 : 0)
-                        .opacity(1 - interpolateValue(dragNextProgress, minValue: 0, maxValue: 1))
-                        .onChange(of: self.current) {
-                            withAnimation {
-                                isTextVisible = true
+                            .frame(maxWidth: .infinity)
+                            .opacity(isTextVisible ? 1 : 0)
+                            .opacity(1 - interpolateValue(dragNextProgress, minValue: 0, maxValue: 1))
+                            .onChange(of: self.current) {
+                                withAnimation {
+                                    isTextVisible = true
+                                }
                             }
                         }
+                        .blur(radius: interpolateValue(dragNextProgress * 0.75, minValue: 0, maxValue: 20))
+                        .modifier(BrushImageModifierEffect(origin: initialPosition, dragProgress: dragNextProgress))
+                        .modifier(BrushImageModifierEffectArr(bounds: arrBounds))
                     }
-                    .blur(radius: interpolateValue(dragNextProgress * 0.75, minValue: 0, maxValue: 20))
-//                    .modifier(BrushImageModifierEffect(origin: initialPosition, dragProgress: dragNextProgress))
+                  
                     
                     if hasNext {
                         let next = pictures[current + 1]
@@ -250,9 +291,11 @@ struct ObjectDetector: View {
                 .onTapGesture { tappedLocation in
                     Task { @MainActor in
                         if let tappedSubject = await self.viewModel.interaction.subject(at: tappedLocation) {
-                            print("tapped subject")
-                        } else {
-                            print("none")
+                            let bound = Bound.init(tapped: tappedLocation, object: tappedSubject.bounds)
+                            
+                            if !arrBounds.contains(where: { $0.id == bound.id }) {
+                                arrBounds.append(bound)
+                            }
                         }
                     }
                 }

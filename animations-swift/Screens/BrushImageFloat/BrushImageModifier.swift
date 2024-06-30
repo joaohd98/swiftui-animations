@@ -52,7 +52,7 @@ struct BrushImageModifierEffect: ViewModifier {
             view.modifier(
                 BrushImageModifier(
                     origin: origin,
-                    elapsedTime: mapRange(inMin: 0, inMax: 0.4, outMin: 0, outMax: 1, valueToMap: dragProgress),
+                    elapsedTime: mapRange(inMin: 0, inMax: 0.6, outMin: 0, outMax: 1, valueToMap: dragProgress),
                     duration: duration
                 )
             )

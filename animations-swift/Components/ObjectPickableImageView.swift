@@ -30,8 +30,6 @@ struct ObjectPickableImageView: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: CustomizedUIImageView, context: Context) {
-        viewModel.loadedImageView = .none
-
         uiView.image = uiImage
         uiView.addInteraction(viewModel.interaction)
         viewModel.loadedImageView = uiView
