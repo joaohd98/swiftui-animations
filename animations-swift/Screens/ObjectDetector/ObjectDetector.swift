@@ -29,6 +29,18 @@ struct Bound: Identifiable {
     }
 }
 
+struct BoundImage: Identifiable {
+    var id: String
+    var object: CGRect
+    var image: UIImage
+    
+    init(object: CGRect, image: UIImage) {
+        self.id = "\(object.width) \(object.height) \(object.midX) \(object.midY)"
+        self.object = object
+        self.image = image
+    }
+}
+
 
 private let pictures: [Picture] = [
     .init(image: .picture0, name: "Toyokawa House", location: "Toyokawa, Japan", type: "Book"),
@@ -53,6 +65,7 @@ struct ObjectDetector: View {
  
     @StateObject private var viewModel = ImageAnalysisViewModel()
     @State private var arrBounds: [Bound] = []
+    @State private var arrImage: [BoundImage] = []
 
     @State private var isTextVisible = true
     @State private var current = 1
@@ -110,6 +123,7 @@ struct ObjectDetector: View {
                         self.isTextVisible = false
                         self.current += 1
                         self.arrBounds = []
+                        self.arrImage = []
                     }
                     
                     self.initialPosition = .zero
@@ -147,12 +161,26 @@ struct ObjectDetector: View {
                             .environmentObject(viewModel)
                             .onAppear {
                                 Task { @MainActor in
-                                    try? await self.viewModel.analyzeImage(pictures[current].image)
+                                    self.arrImage = []
+
+                                    let arr = try await self.viewModel.analyzeImage(pictures[current].image)
+                                    for imageBound in arr {
+                                        let image = try await imageBound.image
+
+                                        self.arrImage.append(.init(object: imageBound.bounds, image: image))
+                                    }
                                 }
                             }
                             .onChange(of: current, { _, newValue in
                                 Task { @MainActor in
-                                    try? await self.viewModel.analyzeImage(pictures[current].image)
+                                    self.arrImage = []
+
+                                    let arr = try await self.viewModel.analyzeImage(pictures[newValue].image)
+                                    for imageBound in arr {
+                                        let image = try await imageBound.image
+
+                                        self.arrImage.append(.init(object: imageBound.bounds, image: image))
+                                    }
                                 }
                             })
                             .opacity(0)
@@ -164,12 +192,31 @@ struct ObjectDetector: View {
                                 .frame(width: proxy.size.width, height: proxy.size.height + safeArea.bottom + safeArea.top)
                                 .scaleEffect(1.05)
                                 .overlay {
+                                    ForEach(arrImage) { bound in
+                                        if !arrBounds.contains(where: { $0.id == bound.id }) {
+                                            Image(uiImage: bound.image)
+                                                .resizable()
+                                                .frame(width: bound.object.width, height: bound.object.height)
+                                                .position(x: bound.object.midX, y: bound.object.midY)
+                                                .shine(duration: 1.8)
+                                                .mask {
+                                                    Image(uiImage: bound.image)
+                                                        .resizable()
+                                                        .frame(width: bound.object.width, height: bound.object.height)
+                                                        .position(x: bound.object.midX, y: bound.object.midY)
+                                                }
+                                                .transition(.opacity)
+                                                .scaleEffect(1.05)
+                                        }
+                                    }
+                                    
                                     ForEach(arrBounds) { bound in
                                         Circle()
                                             .fill(.white)
                                             .frame(width: 12, height: 12)
                                             .position(.init(x: bound.tapped.x, y: bound.tapped.y))
                                     }
+                                    
                                 }
 
                             VStack {
@@ -252,7 +299,6 @@ struct ObjectDetector: View {
                         .modifier(BrushImageModifierEffect(origin: initialPosition, dragProgress: dragNextProgress))
                         .modifier(BrushImageModifierEffectArr(bounds: arrBounds))
                     }
-                  
                     
                     if hasNext {
                         let next = pictures[current + 1]
