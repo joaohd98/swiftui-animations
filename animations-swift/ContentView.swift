@@ -8,12 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
-
     var body: some View {
         NavigationView {
             List {
                 NavigationLink(destination: ObjectDetector()) {
-                    Text("Objector detector")
+                    Text("Object detector")
+                }
+                
+                NavigationLink(destination: PickerDetector()) {
+                    Text("Picker gallery object detector")
                 }
                 NavigationLink(destination: BrushNotchAnimation()) {
                     Text("Brush Notch Animation")

@@ -62,8 +62,8 @@ private let pictures: [Picture] = [
 ]
 
 struct ObjectDetector: View {
- 
     @StateObject private var viewModel = ImageAnalysisViewModel()
+
     @State private var arrBounds: [Bound] = []
     @State private var arrImage: [BoundImage] = []
 
@@ -155,35 +155,22 @@ struct ObjectDetector: View {
                     
                     ZStack {
                         
-                        ObjectPickableImageView(uiImage: pictures[current].image)
-                            .frame(width: proxy.size.width, height: proxy.size.height + safeArea.bottom + safeArea.top)
-                            .scaleEffect(1.05)
-                            .environmentObject(viewModel)
-                            .onAppear {
-                                Task { @MainActor in
-                                    self.arrImage = []
+                        ObjectPickableImageView(uiImage: pictures[current].image, onChangeImage: { image in
+                            Task { @MainActor in
+                                self.arrImage = []
 
-                                    let arr = try await self.viewModel.analyzeImage(pictures[current].image)
-                                    for imageBound in arr {
-                                        let image = try await imageBound.image
+                                let arr = try await self.viewModel.analyzeImage(image)
+                                for imageBound in arr {
+                                    let image = try await imageBound.image
 
-                                        self.arrImage.append(.init(object: imageBound.bounds, image: image))
-                                    }
+                                    self.arrImage.append(.init(object: imageBound.bounds, image: image))
                                 }
                             }
-                            .onChange(of: current, { _, newValue in
-                                Task { @MainActor in
-                                    self.arrImage = []
-
-                                    let arr = try await self.viewModel.analyzeImage(pictures[newValue].image)
-                                    for imageBound in arr {
-                                        let image = try await imageBound.image
-
-                                        self.arrImage.append(.init(object: imageBound.bounds, image: image))
-                                    }
-                                }
-                            })
-                            .opacity(0)
+                        })
+                        .frame(width: proxy.size.width, height: proxy.size.height + safeArea.bottom + safeArea.top)
+                        .scaleEffect(1.05)
+                        .environmentObject(viewModel)
+                        .opacity(0)
 
                         ZStack {
                             Image(uiImage: pictures[current].image)
@@ -194,19 +181,24 @@ struct ObjectDetector: View {
                                 .overlay {
                                     ForEach(arrImage) { bound in
                                         if !arrBounds.contains(where: { $0.id == bound.id }) {
-                                            Image(uiImage: bound.image)
-                                                .resizable()
-                                                .frame(width: bound.object.width, height: bound.object.height)
-                                                .position(x: bound.object.midX, y: bound.object.midY)
-                                                .shine(duration: 1.8)
-                                                .mask {
-                                                    Image(uiImage: bound.image)
-                                                        .resizable()
-                                                        .frame(width: bound.object.width, height: bound.object.height)
-                                                        .position(x: bound.object.midX, y: bound.object.midY)
-                                                }
-                                                .transition(.opacity)
-                                                .scaleEffect(1.05)
+                                            ZStack {
+                                                Image(uiImage: bound.image)
+                                                    .resizable()
+                                                    .frame(width: bound.object.width, height: bound.object.height)
+                                                    .position(x: bound.object.midX, y: bound.object.midY)
+                                                    .scaleEffect(1.05)
+                                                
+                                                Rectangle()
+                                                    .fill(.white.opacity(0.01))
+                                                    .mask {
+                                                        Image(uiImage: bound.image)
+                                                            .resizable()
+                                                            .frame(width: bound.object.width, height: bound.object.height)
+                                                            .position(x: bound.object.midX, y: bound.object.midY)
+                                                            .scaleEffect(1.05)
+                                                    }
+                                                    .shine()
+                                            }
                                         }
                                     }
                                     

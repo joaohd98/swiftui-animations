@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC33CA872C338E8000A54937 /* shimmer.metal in Sources */ = {isa = PBXBuildFile; fileRef = DC33CA862C338E8000A54937 /* shimmer.metal */; };
 		DC46BB962C289EED004D9D51 /* Brush.metal in Sources */ = {isa = PBXBuildFile; fileRef = DC46BB952C289EED004D9D51 /* Brush.metal */; };
 		DC46BB982C28A0BE004D9D51 /* BrushImageModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC46BB972C28A0BE004D9D51 /* BrushImageModifier.swift */; };
 		DC46BB9B2C28A7AC004D9D51 /* BrushVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC46BB9A2C28A7AC004D9D51 /* BrushVideo.swift */; };
+		DC482BE82C322F8300F95B52 /* PickerDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC482BE72C322F8300F95B52 /* PickerDetector.swift */; };
 		DC51B1CE2C2879D3007321BF /* BrushImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC51B1CD2C2879D3007321BF /* BrushImage.swift */; };
 		DC59F4A92C2A8AC900004360 /* BrushImageFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC59F4A82C2A8AC900004360 /* BrushImageFloat.swift */; };
 		DC6E43F92C24F93E00C1F5CE /* BrushAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6E43F82C24F93E00C1F5CE /* BrushAnimation.swift */; };
@@ -56,9 +58,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DC33CA862C338E8000A54937 /* shimmer.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = shimmer.metal; sourceTree = "<group>"; };
 		DC46BB952C289EED004D9D51 /* Brush.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Brush.metal; sourceTree = "<group>"; };
 		DC46BB972C28A0BE004D9D51 /* BrushImageModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrushImageModifier.swift; sourceTree = "<group>"; };
 		DC46BB9A2C28A7AC004D9D51 /* BrushVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrushVideo.swift; sourceTree = "<group>"; };
+		DC482BE72C322F8300F95B52 /* PickerDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerDetector.swift; sourceTree = "<group>"; };
 		DC51B1CD2C2879D3007321BF /* BrushImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrushImage.swift; sourceTree = "<group>"; };
 		DC59F4A82C2A8AC900004360 /* BrushImageFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrushImageFloat.swift; sourceTree = "<group>"; };
 		DC6E43F82C24F93E00C1F5CE /* BrushAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrushAnimation.swift; sourceTree = "<group>"; };
@@ -123,6 +127,14 @@
 				DC46BB9A2C28A7AC004D9D51 /* BrushVideo.swift */,
 			);
 			path = BrushVideo;
+			sourceTree = "<group>";
+		};
+		DC482BE62C322F6F00F95B52 /* PickerDetector */ = {
+			isa = PBXGroup;
+			children = (
+				DC482BE72C322F8300F95B52 /* PickerDetector.swift */,
+			);
+			path = PickerDetector;
 			sourceTree = "<group>";
 		};
 		DC51B1CC2C2879B9007321BF /* BrushImage */ = {
@@ -200,6 +212,7 @@
 		DC6FD7972C1DEB56008FB5FB /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				DC482BE62C322F6F00F95B52 /* PickerDetector */,
 				DCCE3ABB2C2E606700D2EA0A /* ObjectDetector */,
 				DCCD4FC52C2CB73300F051D8 /* BrushNotchAnimation */,
 				DC95EE5D2C2BB20600140C0A /* NotchAnimation */,
@@ -290,6 +303,7 @@
 			children = (
 				DCCE3ABC2C2E608200D2EA0A /* ObjectDetector.swift */,
 				DCAA24B32C30DFF500CC0F27 /* BrushModierArr.swift */,
+				DC33CA862C338E8000A54937 /* shimmer.metal */,
 			);
 			path = ObjectDetector;
 			sourceTree = "<group>";
@@ -417,9 +431,11 @@
 				DC51B1CE2C2879D3007321BF /* BrushImage.swift in Sources */,
 				DC46BB9B2C28A7AC004D9D51 /* BrushVideo.swift in Sources */,
 				DCCE3AC02C2E60C000D2EA0A /* ImageAnalysisViewModel.swift in Sources */,
+				DC482BE82C322F8300F95B52 /* PickerDetector.swift in Sources */,
 				DC883C5C2C1EAF8700BA0CFF /* MonthDayText.swift in Sources */,
 				DC95EE852C2BD71700140C0A /* AnchorKey.swift in Sources */,
 				DC883C612C1FC36400BA0CFF /* InterpolateValue.swift in Sources */,
+				DC33CA872C338E8000A54937 /* shimmer.metal in Sources */,
 				DC95EE5F2C2BB21700140C0A /* NotchAnimation.swift in Sources */,
 				DC6FD7AB2C1E2A7B008FB5FB /* RippleEffect.swift in Sources */,
 				DCCE3AC22C2E618F00D2EA0A /* ObjectPickableImageView.swift in Sources */,

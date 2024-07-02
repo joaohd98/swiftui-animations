@@ -22,6 +22,7 @@ class ImageAnalysisViewModel: NSObject, ObservableObject {
         let analysis = try await analyzer.analyze(image, configuration: configuration)
         interaction.analysis = analysis
         let detectedSubjects = await interaction.subjects
+
         return detectedSubjects
     }
 }

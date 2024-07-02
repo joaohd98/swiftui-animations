@@ -15,6 +15,7 @@ import Combine
 struct ObjectPickableImageView: UIViewRepresentable {
     
     var uiImage: UIImage
+    var onChangeImage: (_ value: UIImage) -> Void = { _ in }
     @EnvironmentObject var viewModel: ImageAnalysisViewModel
     
     func makeUIView(context: Context) -> CustomizedUIImageView {
@@ -25,14 +26,18 @@ struct ObjectPickableImageView: UIViewRepresentable {
         viewModel.interaction.preferredInteractionTypes = [.imageSubject]
         imageView.addInteraction(viewModel.interaction)
         viewModel.loadedImageView = imageView
-        
+        onChangeImage(uiImage)
+
         return imageView
     }
     
     func updateUIView(_ uiView: CustomizedUIImageView, context: Context) {
-        uiView.image = uiImage
-        uiView.addInteraction(viewModel.interaction)
-        viewModel.loadedImageView = uiView
+        if uiView.image != uiImage {
+            uiView.image = uiImage
+            uiView.addInteraction(viewModel.interaction)
+            viewModel.loadedImageView = uiView
+            onChangeImage(uiImage)
+        }
     }
     
 }
